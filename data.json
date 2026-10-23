@@ -1,0 +1,297 @@
+{
+  "sections": [
+    {
+      "id": "section-code-ai",
+      "name": "Code-Ai",
+      "order": 0
+    },
+    {
+      "id": "section-game-store",
+      "name": "Game-Store",
+      "order": 1
+    },
+    {
+      "id": "section-my-boards",
+      "name": "My_Boards",
+      "order": 2
+    },
+    {
+      "id": "section-developement",
+      "name": "Developement",
+      "order": 3
+    },
+    {
+      "id": "section-designing",
+      "name": "Designing",
+      "order": 4
+    },
+    {
+      "id": "section-social-apps",
+      "name": "Social Apps",
+      "order": 5
+    },
+    {
+      "id": "section-17927481898252deec9537a2e9",
+      "name": "Testing",
+      "order": 6
+    }
+  ],
+  "sites": [
+    {
+      "id": "site-chatgpt",
+      "name": "Chatgpt",
+      "domain": "chatgpt.com",
+      "url": "https://chatgpt.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "site-gemini",
+      "name": "Gemini",
+      "domain": "gemini.google.com",
+      "url": "https://gemini.google.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "site-copilot",
+      "name": "Copilot",
+      "domain": "copilot.microsoft.com",
+      "url": "https://copilot.microsoft.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=copilot.microsoft.com&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "site-grok",
+      "name": "Grok",
+      "domain": "grok.com",
+      "url": "https://grok.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=grok.com&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "site-chat",
+      "name": "Chat",
+      "domain": "chat.deepseek.com",
+      "url": "https://chat.deepseek.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=chat.deepseek.com&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "site-claude",
+      "name": "Claude",
+      "domain": "claude.ai",
+      "url": "https://claude.ai",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=claude.ai&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "site-meta",
+      "name": "Meta",
+      "domain": "meta.ai",
+      "url": "https://meta.ai",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=meta.ai&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "site-play",
+      "name": "Play",
+      "domain": "play.google.com",
+      "url": "https://play.google.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=play.google.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-apple-apps",
+      "name": "Apps",
+      "domain": "apps.apple.com",
+      "url": "https://apps.apple.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=apps.apple.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-poki",
+      "name": "Poki",
+      "domain": "poki.com",
+      "url": "https://poki.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=poki.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-ms-apps",
+      "name": "Apps",
+      "domain": "apps.microsoft.com",
+      "url": "https://apps.microsoft.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=apps.microsoft.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-epic-store",
+      "name": "Store",
+      "domain": "store.epicgames.com",
+      "url": "https://store.epicgames.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=store.epicgames.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-steam-store",
+      "name": "Store",
+      "domain": "store.steampowered.com",
+      "url": "https://store.steampowered.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-crazygames",
+      "name": "Crazygames",
+      "domain": "crazygames.com",
+      "url": "https://crazygames.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=crazygames.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-xbox",
+      "name": "Xbox",
+      "domain": "xbox.com",
+      "url": "https://xbox.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=xbox.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-playstation-store",
+      "name": "Store",
+      "domain": "store.playstation.com",
+      "url": "https://store.playstation.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=store.playstation.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-galaxystore",
+      "name": "Galaxystore",
+      "domain": "galaxystore.samsung.com",
+      "url": "https://galaxystore.samsung.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=galaxystore.samsung.com&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-cafebazaar",
+      "name": "Cafebazaar",
+      "domain": "cafebazaar.ir",
+      "url": "https://cafebazaar.ir",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=cafebazaar.ir&sz=32",
+      "sectionId": "section-game-store"
+    },
+    {
+      "id": "site-figma",
+      "name": "Figma",
+      "domain": "figma.com",
+      "url": "https://figma.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=figma.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "site-miro",
+      "name": "Miro",
+      "domain": "miro.com",
+      "url": "https://miro.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=miro.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "site-excalidraw",
+      "name": "Excalidraw",
+      "domain": "excalidraw.com",
+      "url": "https://excalidraw.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=excalidraw.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "site-onenote",
+      "name": "Onenote",
+      "domain": "onenote.com",
+      "url": "https://onenote.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=onenote.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "site-docs",
+      "name": "Docs",
+      "domain": "docs.google.com",
+      "url": "https://docs.google.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "site-github",
+      "name": "Github",
+      "domain": "github.com",
+      "url": "https://github.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=github.com&sz=32",
+      "sectionId": "section-developement"
+    },
+    {
+      "id": "site-magnific",
+      "name": "Magnific",
+      "domain": "magnific.ai",
+      "url": "https://magnific.ai",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=magnific.ai&sz=32",
+      "sectionId": "section-designing"
+    },
+    {
+      "id": "site-pinterest",
+      "name": "Pinterest",
+      "domain": "pinterest.com",
+      "url": "https://pinterest.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=pinterest.com&sz=32",
+      "sectionId": "section-designing"
+    },
+    {
+      "id": "site-iloveimg",
+      "name": "Iloveimg",
+      "domain": "iloveimg.com",
+      "url": "https://iloveimg.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=iloveimg.com&sz=32",
+      "sectionId": "section-designing"
+    },
+    {
+      "id": "site-sketchfab",
+      "name": "Sketchfab",
+      "domain": "sketchfab.com",
+      "url": "https://sketchfab.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=sketchfab.com&sz=32",
+      "sectionId": "section-designing"
+    },
+    {
+      "id": "site-reddit",
+      "name": "Reddit",
+      "domain": "reddit.com",
+      "url": "https://reddit.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=reddit.com&sz=32",
+      "sectionId": "section-social-apps"
+    },
+    {
+      "id": "site-linkedin",
+      "name": "Linkedin",
+      "domain": "linkedin.com",
+      "url": "https://linkedin.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=linkedin.com&sz=32",
+      "sectionId": "section-social-apps"
+    },
+    {
+      "id": "179274819466412fb911ec248a",
+      "name": "Figma",
+      "domain": "https://www.figma.com/board/O413Yse4TBjTiIVGfcTBoz/GameConcepts?node-id=0-1&p=f&t=GuNKK9B0qc8wYBYa-0",
+      "url": "https://www.figma.com/board/O413Yse4TBjTiIVGfcTBoz/GameConcepts?node-id=0-1&p=f&t=GuNKK9B0qc8wYBYa-0",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.figma.com&sz=32",
+      "sectionId": "section-17927481898252deec9537a2e9"
+    },
+    {
+      "id": "1792749116776cf5bb9b9a5eae",
+      "name": "Play",
+      "domain": "https://play.google.com/store/apps/details?id=com.jungle.roll",
+      "url": "https://play.google.com/store/apps/details?id=com.jungle.roll",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=play.google.com&sz=32",
+      "sectionId": "section-17927481898252deec9537a2e9"
+    }
+  ]
+}

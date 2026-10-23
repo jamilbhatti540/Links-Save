@@ -1,0 +1,2892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MyPage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="Icon.png" />
+  <link rel="shortcut icon" type="image/png" href="Icon.png" />
+  <link rel="apple-touch-icon" href="Icon.png" />
+  <style>
+    :root {
+      --bg-body: #080c14;
+      --bg-sidebar: rgba(13, 19, 33, 0.96);
+      --border-sidebar: rgba(148, 163, 184, 0.12);
+      --bg-sidebar-bottom: rgba(9, 13, 22, 0.6);
+      --bg-main: radial-gradient(circle at 40% 0%, #111a33 0%, #080c16 60%, #03060c 100%);
+      --bg-header: rgba(13, 19, 33, 0.45);
+      --border-header: rgba(148, 163, 184, 0.08);
+      --text-main: #e2e8f0;
+      --text-heading: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --text-placeholder: #64748b;
+      --bg-card: linear-gradient(135deg, rgba(20, 29, 47, 0.75), rgba(11, 16, 28, 0.9));
+      --bg-card-hover: linear-gradient(135deg, rgba(30, 48, 80, 0.8), rgba(15, 23, 42, 0.95));
+      --border-card: rgba(148, 163, 184, 0.14);
+      --border-card-hover: rgba(56, 189, 248, 0.5);
+      --card-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      --card-shadow-hover: 0 10px 25px rgba(2, 132, 199, 0.18);
+      --bg-btn: rgba(30, 41, 59, 0.6);
+      --bg-btn-hover: rgba(51, 65, 85, 0.85);
+      --border-btn: rgba(148, 163, 184, 0.2);
+      --btn-text: #cbd5e1;
+      --bg-input: rgba(15, 23, 42, 0.75);
+      --border-input: rgba(148, 163, 184, 0.18);
+      --text-input: #f1f5f9;
+      --bg-modal: rgba(15, 23, 42, 0.98);
+      --border-modal: rgba(148, 163, 184, 0.2);
+      --bg-settings-card: rgba(15, 23, 42, 0.65);
+      --border-settings-card: rgba(148, 163, 184, 0.14);
+      --tab-hover: rgba(255, 255, 255, 0.04);
+      --tab-active-bg: linear-gradient(90deg, rgba(56, 189, 248, 0.16), rgba(56, 189, 248, 0.04));
+      --tab-active-color: #38bdf8;
+      --tab-active-border: rgba(56, 189, 248, 0.25);
+      --badge-bg: rgba(148, 163, 184, 0.1);
+      --badge-color: #64748b;
+      --icon-bg: rgba(15, 23, 42, 0.9);
+      --modal-overlay: rgba(0, 0, 0, 0.7);
+      --toast-bg: rgba(15, 23, 42, 0.95);
+      --toast-border: rgba(56, 189, 248, 0.7);
+      --toast-text: #38bdf8;
+    }
+
+    body.light-theme {
+      --bg-body: #f8fafc;
+      --bg-sidebar: #ffffff;
+      --border-sidebar: #e2e8f0;
+      --bg-sidebar-bottom: #f8fafc;
+      --bg-main: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+      --bg-header: rgba(255, 255, 255, 0.92);
+      --border-header: #e2e8f0;
+      --text-main: #334155;
+      --text-heading: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --text-placeholder: #94a3b8;
+      --bg-card: #ffffff;
+      --bg-card-hover: #ffffff;
+      --border-card: #e2e8f0;
+      --border-card-hover: #0284c7;
+      --card-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --card-shadow-hover: 0 10px 24px rgba(2, 132, 199, 0.16);
+      --bg-btn: #f1f5f9;
+      --bg-btn-hover: #e2e8f0;
+      --border-btn: #cbd5e1;
+      --btn-text: #334155;
+      --bg-input: #ffffff;
+      --border-input: #cbd5e1;
+      --text-input: #0f172a;
+      --bg-modal: #ffffff;
+      --border-modal: #e2e8f0;
+      --bg-settings-card: #f8fafc;
+      --border-settings-card: #e2e8f0;
+      --tab-hover: #f1f5f9;
+      --tab-active-bg: linear-gradient(90deg, rgba(2, 132, 199, 0.12), rgba(2, 132, 199, 0.03));
+      --tab-active-color: #0284c7;
+      --tab-active-border: rgba(2, 132, 199, 0.35);
+      --badge-bg: #e2e8f0;
+      --badge-color: #475569;
+      --icon-bg: #f8fafc;
+      --modal-overlay: rgba(15, 23, 42, 0.45);
+      --toast-bg: #0f172a;
+      --toast-border: #0284c7;
+      --toast-text: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      background: var(--bg-body);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      overflow: hidden;
+      display: flex;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.25);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(148, 163, 184, 0.45);
+    }
+
+    .app-layout {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* ================= LEFT SIDEBAR ================= */
+    .sidebar {
+      width: 260px;
+      min-width: 260px;
+      height: 100%;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-sidebar);
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .app-layout.sidebar-collapsed .sidebar {
+      width: 0 !important;
+      min-width: 0 !important;
+      padding: 0 !important;
+      border-right: none !important;
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .sidebar-brand {
+      padding: 1.25rem 1.25rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--border-sidebar);
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+
+    .brand-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9px;
+      display: block;
+    }
+
+    .brand-info h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brand-badge {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .sidebar-search-box {
+      padding: 0.85rem 1.1rem;
+      position: relative;
+    }
+
+    .sidebar-search-box input {
+      width: 100%;
+      padding: 0.55rem 0.75rem 0.55rem 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-input);
+      background: var(--bg-input);
+      color: var(--text-input);
+      font-size: 0.84rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-search-box input::placeholder {
+      color: var(--text-placeholder);
+    }
+
+    .sidebar-search-box input:focus {
+      border-color: #38bdf8;
+      background: var(--bg-input);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .sidebar-search-box .search-icon {
+      position: absolute;
+      left: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .sidebar-section-title {
+      padding: 0.5rem 1.25rem 0.35rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-subtle);
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar-mini-add-btn {
+      background: none;
+      border: none;
+      color: #38bdf8;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0 0.25rem;
+      line-height: 1;
+      border-radius: 4px;
+      transition: transform 0.15s ease;
+    }
+
+    .sidebar-mini-add-btn:hover {
+      transform: scale(1.2);
+      color: #7dd3fc;
+    }
+
+    .sidebar-tabs {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .sidebar-tab {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    .sidebar-tab:hover {
+      background: var(--tab-hover);
+      color: var(--text-heading);
+    }
+
+    .sidebar-tab.active {
+      background: var(--tab-active-bg);
+      color: var(--tab-active-color);
+      font-weight: 600;
+      border-color: var(--tab-active-border);
+    }
+
+    .sidebar-tab .tab-name {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sidebar-tab .tab-icon {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .sidebar-tab .tab-count {
+      font-size: 0.72rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--badge-color);
+      font-weight: 600;
+    }
+
+    .sidebar-tab.active .tab-count {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--tab-active-color);
+    }
+
+    .sidebar-bottom {
+      padding: 0.85rem 1rem;
+      border-top: 1px solid var(--border-sidebar);
+      background: var(--bg-sidebar-bottom);
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .sidebar-auto-save {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .status-indicator-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #64748b;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .status-indicator-dot.active {
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .sidebar-quick-tools {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .tool-btn {
+      flex: 1;
+      padding: 0.42rem 0.25rem;
+      font-size: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-btn);
+      background: var(--bg-btn);
+      color: var(--btn-text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      transition: all 0.15s ease;
+    }
+
+    .tool-btn:hover {
+      background: var(--bg-btn-hover);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--text-heading);
+    }
+
+    /* ================= MAIN CONTENT ================= */
+    .main-content {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--bg-main);
+      transition: background 0.25s ease;
+    }
+
+    .content-header {
+      padding: 1.1rem 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-header);
+      background: var(--bg-header);
+      backdrop-filter: blur(8px);
+      gap: 1rem;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .icon-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border-btn);
+      background: var(--bg-btn);
+      color: var(--btn-text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .icon-toggle-btn:hover {
+      background: var(--bg-btn-hover);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-simple-add {
+      height: 36px;
+      padding: 0 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-btn);
+      background: var(--bg-btn);
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      line-height: 1;
+    }
+
+    .btn-simple-add:hover {
+      background: var(--bg-btn-hover);
+      color: var(--tab-active-color);
+      border-color: var(--tab-active-border);
+    }
+
+    .btn-simple-add .add-plus {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--tab-active-color);
+      line-height: 1;
+    }
+
+    .header-tab-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .header-tab-meta h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+    }
+
+    .header-tab-meta .badge {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .mode-indicator-badge {
+      display: none;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.15s ease;
+    }
+
+    .mode-indicator-badge.show {
+      display: inline-flex;
+    }
+
+    .mode-indicator-badge.delete-badge {
+      background: rgba(220, 38, 38, 0.25);
+      color: #fca5a5;
+      border: 1px solid #ef4444;
+    }
+
+    .mode-indicator-badge.reorder-badge {
+      background: rgba(13, 148, 136, 0.25);
+      color: #5eead4;
+      border: 1px solid #14b8a6;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn {
+      padding: 0.48rem 0.95rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1px solid var(--border-btn);
+      background: var(--bg-btn);
+      color: var(--btn-text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--bg-btn-hover);
+      color: var(--text-heading);
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      border-color: #38bdf8;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+      color: #ffffff;
+    }
+
+    .btn.active {
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.6);
+      background: var(--tab-active-bg);
+      border-color: var(--tab-active-border);
+      color: var(--tab-active-color);
+    }
+
+    .btn-danger.active {
+      background: #dc2626;
+      border-color: #ef4444;
+      color: #fff;
+    }
+
+    .btn-secondary.active {
+      background: #0d9488;
+      border-color: #2dd4bf;
+      color: #fff;
+    }
+
+    .links-scroll-wrapper {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.75rem 2.25rem 3rem;
+    }
+
+    .links-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Tab Filtering */
+    .section {
+      display: none;
+      width: 100%;
+      margin-bottom: 2rem;
+      animation: tabFadeIn 0.2s ease-out;
+    }
+
+    .section.active-tab {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ================= BUTTON CARDS GRID ================= */
+    .section-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .link-button {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-card);
+      background: var(--bg-card);
+      box-shadow: var(--card-shadow);
+      cursor: pointer;
+      color: var(--text-main);
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+      min-width: 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-button:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-card-hover);
+      background: var(--bg-card-hover);
+      color: var(--text-heading);
+    }
+
+    .link-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--icon-bg);
+      object-fit: contain;
+      flex-shrink: 0;
+      border: 1px solid var(--border-card);
+    }
+
+    .link-button .link-label {
+      font-size: 0.92rem;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .link-button span:not(.link-thumb-arrow) {
+      font-size: 0.92rem;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .link-button.reordering {
+      border: 1px dashed #38bdf8;
+      background: rgba(14, 116, 144, 0.2);
+    }
+
+    .delete-mode-active .link-button:hover {
+      border-color: #ef4444;
+      background: rgba(127, 29, 29, 0.35);
+    }
+
+    /* ================= ATTACHED THUMBNAIL PREVIEW (RIGHT BELOW BUTTON ON 1-SEC HOVER) ================= */
+
+    .link-floating-preview {
+      position: fixed;
+      z-index: 1000;
+      width: 250px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      animation: previewSlideDown 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    body.light-theme .link-floating-preview {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.15), 0 1px 3px rgba(15, 23, 42, 0.08);
+    }
+
+    .link-floating-preview:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.48);
+    }
+
+    body.light-theme .link-floating-preview:hover {
+      box-shadow: 0 20px 44px rgba(2, 132, 199, 0.2);
+    }
+
+    @keyframes previewSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .floating-thumb-media {
+      position: relative;
+      width: 100%;
+      height: 145px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    body.light-theme .floating-thumb-media {
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    }
+
+    .floating-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .floating-thumb-img.loaded {
+      display: block;
+    }
+
+    .floating-thumb-loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      text-align: center;
+      padding: 0.75rem;
+    }
+
+    .floating-thumb-spinner {
+      width: 24px;
+      height: 24px;
+      border: 2.5px solid rgba(56, 189, 248, 0.2);
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: previewSpin 0.7s linear infinite;
+    }
+
+    .floating-thumb-body {
+      padding: 0.75rem 0.85rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .floating-thumb-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .floating-thumb-desc {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .floating-thumb-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid var(--border-sidebar);
+    }
+
+    .floating-thumb-favicon {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .floating-thumb-domain {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-decoration: underline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+
+    .link-floating-preview:hover .floating-thumb-domain {
+      color: var(--tab-active-color);
+    }
+
+    /* ================= MODAL PANELS ================= */
+    .panel-backdrop {
+      position: fixed;
+      inset: 0;
+      background: var(--modal-overlay);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .panel {
+      background: var(--bg-modal);
+      border: 1px solid var(--border-modal);
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      width: 360px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+    }
+
+    .panel h2 {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      color: var(--text-heading);
+    }
+
+    .panel-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .panel label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .panel input,
+    .panel select {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-input);
+      background: var(--bg-input);
+      color: var(--text-input);
+      outline: none;
+      font-size: 0.9rem;
+    }
+
+    .panel input::placeholder {
+      color: var(--text-placeholder);
+    }
+
+    .panel input:focus,
+    .panel select:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+    }
+
+    .panel .section-new-input {
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .panel .section-new-input.show {
+      display: block;
+    }
+
+    .panel-sections-list {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-sidebar);
+    }
+
+    .panel-sections-list h3 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+      font-weight: 600;
+    }
+
+    .section-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.45rem 0.65rem;
+      margin-bottom: 0.45rem;
+      background: var(--bg-settings-card);
+      border-radius: 0.45rem;
+      border: 1px solid var(--border-settings-card);
+    }
+
+    .section-list-item-name {
+      flex: 1;
+      color: var(--text-main);
+      font-size: 0.85rem;
+    }
+
+    .section-list-delete-btn {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      padding: 0.2rem 0.45rem;
+      border-radius: 0.35rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .section-list-delete-btn:hover {
+      background: rgba(239, 68, 68, 0.4);
+      color: #fee2e2;
+    }
+
+    .panel-actions {
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.65rem;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--toast-bg);
+      border: 1px solid var(--toast-border);
+      color: var(--toast-text);
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Settings Panel Styles */
+    .settings-panel {
+      width: 440px !important;
+      max-width: 95vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .settings-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-settings-card);
+      padding-bottom: 0.75rem;
+    }
+
+    .settings-header h2 {
+      margin-bottom: 0 !important;
+      font-size: 1.2rem;
+    }
+
+    .close-icon-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .close-icon-btn:hover {
+      color: var(--text-heading);
+      background: var(--bg-btn-hover);
+    }
+
+    .settings-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .settings-card {
+      background: var(--bg-settings-card);
+      border: 1px solid var(--border-settings-card);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .settings-card-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.65rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Left Column: Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">
+          <img src="Icon.png" alt="Logo" class="brand-logo-img" />
+        </div>
+        <div class="brand-info">
+          <h2>MyPage</h2>
+          <span class="brand-badge" id="sidebar-stats">Collections</span>
+        </div>
+        <button type="button" id="sidebar-collapse-btn" class="sidebar-mini-add-btn" style="margin-left: auto; font-size: 0.85rem;" title="Hide Sidebar">◀</button>
+      </div>
+
+      <!-- Quick Search -->
+      <div class="sidebar-search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="quick-search-input" placeholder="Search shortcuts..." autocomplete="off" />
+      </div>
+
+      <!-- Section Tabs -->
+      <div class="sidebar-section-title">
+        <span>COLLECTIONS</span>
+        <button type="button" id="sidebar-add-section-btn" class="sidebar-mini-add-btn" title="Add New Section">＋</button>
+      </div>
+      <div class="sidebar-tabs" id="sidebar-tabs">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Sidebar Bottom -->
+      <div class="sidebar-bottom">
+        <div class="sidebar-auto-save" id="sidebar-auto-save-status">
+          <span class="status-indicator-dot" id="status-dot"></span>
+          <span id="file-link-status">Auto-Save: Off</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+          <button type="button" id="sidebar-add-btn" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.82rem; padding: 0.45rem;" title="Add Website Shortcut">
+            <span>＋</span> Add Shortcut
+          </button>
+          <div style="display: flex; gap: 0.45rem;">
+            <button type="button" id="sidebar-settings-btn" class="tool-btn" style="flex: 1; justify-content: center; padding: 0.45rem;" title="Open Workspace Settings">
+              <span>⚙️</span> Settings
+            </button>
+            <button type="button" id="sidebar-theme-btn" class="tool-btn" style="flex: 1; justify-content: center; padding: 0.45rem;" title="Switch Bright / Dark Mode">
+              <span id="sidebar-theme-icon">☀️</span> <span id="sidebar-theme-text">Bright</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Column: Main Content -->
+    <main class="main-content">
+      <header class="content-header">
+        <div class="header-left">
+          <button type="button" id="sidebar-toggle-btn" class="icon-toggle-btn" title="Toggle Sidebar">☰</button>
+          <div class="header-tab-meta">
+            <h1 id="active-tab-title">Code-Ai</h1>
+          </div>
+          <div id="mode-badge-delete" class="mode-indicator-badge delete-badge" title="Click to Exit Delete Mode">
+            <span>🗑️ Delete Mode (Click to Finish)</span>
+          </div>
+          <div id="mode-badge-reorder" class="mode-indicator-badge reorder-badge" title="Click to Exit Reorder Mode">
+            <span>⇅ Reorder Mode (Click to Finish)</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button type="button" id="theme-toggle-btn" class="icon-toggle-btn" title="Switch Bright / Dark Mode" aria-label="Toggle Bright / Dark Mode">
+            <span id="theme-toggle-icon">☀️</span>
+          </button>
+          <button type="button" id="open-panel-btn" class="btn-simple-add" title="Add Website Shortcut">
+            <span class="add-plus">＋</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="links-scroll-wrapper">
+        <section class="links-container" id="links-container">
+          <!-- Section divs rendered here -->
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Website Shortcut Modal -->
+  <div class="panel-backdrop" id="panel-backdrop">
+    <div class="panel" role="dialog" aria-modal="true">
+      <h2>Add Website Shortcut</h2>
+      <div class="panel-group">
+        <label for="site-domain">Website Domain or URL</label>
+        <input type="text" id="site-domain" placeholder="e.g. google.com or https://..." />
+      </div>
+      <div class="panel-group">
+        <label for="site-name">Button Text / Label (Optional)</label>
+        <input type="text" id="site-name" placeholder="Leave blank for auto website name..." />
+      </div>
+      <div class="panel-group">
+        <label for="site-section">Collection / Section</label>
+        <select id="site-section">
+          <option value="">Select collection...</option>
+        </select>
+        <input type="text" id="section-new-input" class="section-new-input" placeholder="New section name..." />
+        <button type="button" id="new-section-btn" style="margin-top: 0.5rem; padding: 0.4rem 1rem; font-size: 0.85rem;">+ New Section</button>
+      </div>
+      <div class="panel-actions">
+        <button type="button" id="cancel-panel-btn">Cancel</button>
+        <button type="button" id="create-site-btn" class="btn btn-primary">Create Shortcut</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings & Management Modal -->
+  <div class="panel-backdrop" id="settings-modal" style="display: none;">
+    <div class="panel settings-panel" role="dialog" aria-modal="true">
+      <div class="settings-header">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span style="font-size: 1.25rem;">⚙️</span>
+          <h2>Workspace Settings</h2>
+        </div>
+        <button type="button" id="close-settings-btn" class="close-icon-btn" title="Close Settings">×</button>
+      </div>
+
+      <div class="settings-content">
+        <!-- Manage Sections -->
+        <div class="settings-card">
+          <div class="settings-card-title">📁 Manage Sections</div>
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <input type="text" id="settings-new-section-input" placeholder="New collection name..." style="flex: 1;" />
+            <button type="button" id="settings-add-section-btn" class="btn btn-primary" style="padding: 0.45rem 0.85rem; font-size: 0.8rem; white-space: nowrap;">＋ Add</button>
+          </div>
+          <div class="panel-sections-list" style="margin-top: 0; padding-top: 0; border: none;">
+            <div id="sections-list-container"></div>
+          </div>
+          <button type="button" id="reorder-section-btn" class="btn btn-secondary" style="width: 100%; margin-top: 0.6rem; justify-content: center; font-size: 0.8rem;">
+            <span class="reorder-icon">≡</span> Reorder Sections Order
+          </button>
+        </div>
+
+        <!-- Theme & Appearance -->
+        <div class="settings-card">
+          <div class="settings-card-title">🎨 Theme & Brightness</div>
+          <div style="display: flex; gap: 0.6rem;">
+            <button type="button" id="settings-theme-dark-btn" class="btn" style="flex: 1; justify-content: center; font-size: 0.82rem;">
+              <span>🌙</span> Dark Mode
+            </button>
+            <button type="button" id="settings-theme-light-btn" class="btn" style="flex: 1; justify-content: center; font-size: 0.82rem;">
+              <span>☀️</span> Bright Mode
+            </button>
+          </div>
+        </div>
+
+        <!-- Button Organization Modes -->
+        <div class="settings-card">
+          <div class="settings-card-title">✏️ Organize & Edit Mode</div>
+          <div style="display: flex; gap: 0.6rem;">
+            <button type="button" id="reorder-mode-btn" class="btn btn-secondary" style="flex: 1; justify-content: center;">
+              <span class="reorder-icon">⇅</span> <span id="reorder-mode-text">Reorder</span>
+            </button>
+            <button type="button" id="delete-mode-btn" class="btn btn-danger" style="flex: 1; justify-content: center;">
+              <span class="minus-icon">-</span> <span id="delete-mode-text">Delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Local Storage & Auto-Save -->
+        <div class="settings-card">
+          <div class="settings-card-title">💾 Local Storage & Auto-Save</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem; padding: 0.55rem 0.75rem; background: var(--bg-card); border-radius: 6px; border: 1px solid var(--border-card);">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="status-indicator-dot" id="settings-status-dot"></span>
+              <span id="settings-file-status" style="font-size: 0.82rem; color: var(--text-muted);">Auto-Save: Off</span>
+            </div>
+            <button type="button" id="link-file-btn" class="btn" style="padding: 0.35rem 0.65rem; font-size: 0.75rem;">
+              <span id="link-icon">🔗</span> Link data.json
+            </button>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button type="button" id="quick-export-btn" class="btn btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem;">
+              <span>💾</span> Export JSON
+            </button>
+            <button type="button" id="quick-import-btn" class="btn btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem;">
+              <span>📂</span> Import JSON
+            </button>
+          </div>
+          <input type="file" id="import-file-input" accept=".json" style="display: none;" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reorder Section Dialog -->
+  <div class="panel-backdrop" id="reorder-section-panel" style="display: none;">
+    <div class="panel" role="dialog" aria-modal="true">
+      <h2>Reorder Section</h2>
+      <div class="panel-group">
+        <label for="reorder-section-select">Choose Section</label>
+        <select id="reorder-section-select">
+          <option value="">Select a section...</option>
+        </select>
+      </div>
+      <div class="panel-group">
+        <label for="reorder-section-index">New Position (0 = first)</label>
+        <input type="number" id="reorder-section-index" min="0" placeholder="Enter new position" />
+      </div>
+      <div class="panel-actions">
+        <button type="button" id="cancel-reorder-section-btn">Cancel</button>
+        <button type="button" id="apply-reorder-section-btn" class="btn btn-primary">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Attached Link Thumbnail Preview (Displayed directly below clicked button) -->
+  <div id="link-floating-preview" class="link-floating-preview" title="Click to open website">
+    <div class="floating-thumb-media">
+      <img id="floating-thumb-img" class="floating-thumb-img" src="" alt="Thumbnail" />
+      <div id="floating-thumb-loader" class="floating-thumb-loader">
+        <div class="floating-thumb-spinner"></div>
+        <span>Loading preview...</span>
+      </div>
+    </div>
+    <div class="floating-thumb-body">
+      <div id="floating-thumb-title" class="floating-thumb-title">Site Title</div>
+      <div id="floating-thumb-desc" class="floating-thumb-desc">Website link guide</div>
+      <div class="floating-thumb-footer">
+        <img id="floating-thumb-favicon" class="floating-thumb-favicon" src="" alt="" />
+        <span id="floating-thumb-domain" class="floating-thumb-domain">domain.com</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openPanelBtn = document.getElementById('open-panel-btn');
+    const deleteModeBtn = document.getElementById('delete-mode-btn');
+    const reorderModeBtn = document.getElementById('reorder-mode-btn');
+    const panelBackdrop = document.getElementById('panel-backdrop');
+    const cancelPanelBtn = document.getElementById('cancel-panel-btn');
+    const createSiteBtn = document.getElementById('create-site-btn');
+    const siteDomainInput = document.getElementById('site-domain');
+    const siteNameInput = document.getElementById('site-name');
+    const siteSectionSelect = document.getElementById('site-section');
+    const sectionNewInput = document.getElementById('section-new-input');
+    const newSectionBtn = document.getElementById('new-section-btn');
+    const linksContainer = document.getElementById('links-container');
+    const exportBackupBtn = document.getElementById('export-backup-btn');
+    const importBackupBtn = document.getElementById('import-backup-btn');
+    const importFileInput = document.getElementById('import-file-input');
+    const quickExportBtn = document.getElementById('quick-export-btn');
+    const quickImportBtn = document.getElementById('quick-import-btn');
+    const linkFileBtn = document.getElementById('link-file-btn');
+    const panelLinkFileBtn = document.getElementById('panel-link-file-btn');
+    const fileLinkStatus = document.getElementById('file-link-status');
+    const linkIcon = document.getElementById('link-icon');
+    const sidebarTabs = document.getElementById('sidebar-tabs');
+    const sidebarAddSectionBtn = document.getElementById('sidebar-add-section-btn');
+    const quickSearchInput = document.getElementById('quick-search-input');
+    const activeTabTitle = document.getElementById('active-tab-title');
+    const activeTabCount = document.getElementById('active-tab-count');
+    const sidebarStats = document.getElementById('sidebar-stats');
+    const statusDot = document.getElementById('status-dot');
+
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+    const sidebarCollapseBtn = document.getElementById('sidebar-collapse-btn');
+    const openSettingsBtn = document.getElementById('open-settings-btn');
+    const sidebarSettingsBtn = document.getElementById('sidebar-settings-btn');
+    const sidebarAddBtn = document.getElementById('sidebar-add-btn');
+    const closeSettingsBtn = document.getElementById('close-settings-btn');
+    const settingsModal = document.getElementById('settings-modal');
+    const settingsNewSectionInput = document.getElementById('settings-new-section-input');
+    const settingsAddSectionBtn = document.getElementById('settings-add-section-btn');
+    const modeBadgeDelete = document.getElementById('mode-badge-delete');
+    const modeBadgeReorder = document.getElementById('mode-badge-reorder');
+    const settingsStatusDot = document.getElementById('settings-status-dot');
+    const settingsFileStatus = document.getElementById('settings-file-status');
+    const appLayout = document.querySelector('.app-layout');
+
+    let deleteMode = false;
+    let reorderMode = false;
+    let dragSourceId = null;
+    let dragSectionId = null;
+    let sites = [];
+    let sections = [];
+    let fileHandle = null;
+    let autoSaveTimer = null;
+    let activeTabId = localStorage.getItem('myfiles_active_tab') || 'section-code-ai';
+
+    // ================= THEME (BRIGHT / DARK MODE) =================
+    const THEME_STORAGE_KEY = 'myfiles_theme';
+    let currentTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
+
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');
+    const sidebarThemeBtn = document.getElementById('sidebar-theme-btn');
+    const sidebarThemeIcon = document.getElementById('sidebar-theme-icon');
+    const sidebarThemeText = document.getElementById('sidebar-theme-text');
+    const settingsThemeDarkBtn = document.getElementById('settings-theme-dark-btn');
+    const settingsThemeLightBtn = document.getElementById('settings-theme-light-btn');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      } else {
+        document.body.classList.remove('light-theme');
+      }
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+      updateThemeUI();
+    }
+
+    function toggleTheme() {
+      applyTheme(currentTheme === 'light' ? 'dark' : 'light');
+      showToast(currentTheme === 'light' ? '☀️ Bright mode enabled' : '🌙 Dark mode enabled');
+    }
+
+    function updateThemeUI() {
+      const isLight = currentTheme === 'light';
+
+      if (themeToggleIcon) themeToggleIcon.textContent = isLight ? '🌙' : '☀️';
+      if (themeToggleBtn) {
+        themeToggleBtn.title = isLight ? 'Switch to Dark Mode' : 'Switch to Bright Mode';
+        themeToggleBtn.setAttribute('aria-label', themeToggleBtn.title);
+      }
+
+      if (sidebarThemeIcon) sidebarThemeIcon.textContent = isLight ? '🌙' : '☀️';
+      if (sidebarThemeText) sidebarThemeText.textContent = isLight ? 'Dark' : 'Bright';
+      if (sidebarThemeBtn) {
+        sidebarThemeBtn.title = isLight ? 'Switch to Dark Mode' : 'Switch to Bright Mode';
+      }
+
+      if (settingsThemeDarkBtn) {
+        settingsThemeDarkBtn.classList.toggle('btn-primary', !isLight);
+        settingsThemeDarkBtn.classList.toggle('btn-secondary', isLight);
+      }
+      if (settingsThemeLightBtn) {
+        settingsThemeLightBtn.classList.toggle('btn-primary', isLight);
+        settingsThemeLightBtn.classList.toggle('btn-secondary', !isLight);
+      }
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (sidebarThemeBtn) sidebarThemeBtn.addEventListener('click', toggleTheme);
+    if (settingsThemeDarkBtn) {
+      settingsThemeDarkBtn.addEventListener('click', () => {
+        applyTheme('dark');
+        showToast('🌙 Dark mode enabled');
+      });
+    }
+    if (settingsThemeLightBtn) {
+      settingsThemeLightBtn.addEventListener('click', () => {
+        applyTheme('light');
+        showToast('☀️ Bright mode enabled');
+      });
+    }
+
+    // Initialize theme immediately
+    applyTheme(currentTheme);
+
+    if (sidebarAddBtn) sidebarAddBtn.addEventListener('click', openPanel);
+
+    function toggleSidebar() {
+      if (!appLayout) return;
+      const isCollapsed = appLayout.classList.toggle('sidebar-collapsed');
+      localStorage.setItem('myfiles_sidebar_collapsed', isCollapsed ? '1' : '0');
+    }
+
+    if (sidebarToggleBtn) sidebarToggleBtn.addEventListener('click', toggleSidebar);
+    if (sidebarCollapseBtn) sidebarCollapseBtn.addEventListener('click', toggleSidebar);
+
+    if (localStorage.getItem('myfiles_sidebar_collapsed') === '1' && appLayout) {
+      appLayout.classList.add('sidebar-collapsed');
+    }
+
+    function openSettings() {
+      renderSectionsList();
+      updateFileLinkUI(!!fileHandle);
+      updateThemeUI();
+      if (settingsModal) settingsModal.style.display = 'flex';
+    }
+
+    function closeSettings() {
+      if (settingsModal) settingsModal.style.display = 'none';
+      if (settingsNewSectionInput) settingsNewSectionInput.value = '';
+    }
+
+    if (openSettingsBtn) openSettingsBtn.addEventListener('click', openSettings);
+    if (sidebarSettingsBtn) sidebarSettingsBtn.addEventListener('click', openSettings);
+    if (closeSettingsBtn) closeSettingsBtn.addEventListener('click', closeSettings);
+
+    if (settingsModal) {
+      settingsModal.addEventListener('click', (e) => {
+        if (e.target === settingsModal) closeSettings();
+      });
+    }
+
+    if (settingsAddSectionBtn && settingsNewSectionInput) {
+      const addSectionFromSettings = () => {
+        const name = settingsNewSectionInput.value.trim();
+        if (name) {
+          const newSection = {
+            id: 'section-' + Date.now() + Math.random().toString(16).slice(2),
+            name: name,
+            order: sections.length,
+          };
+          sections.push(newSection);
+          saveSections();
+          updateSectionDropdown();
+          renderSectionsList();
+          renderSidebarTabs();
+          switchTab(newSection.id);
+          settingsNewSectionInput.value = '';
+          showToast('Added collection: ' + name);
+        }
+      };
+      settingsAddSectionBtn.addEventListener('click', addSectionFromSettings);
+      settingsNewSectionInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') addSectionFromSettings();
+      });
+    }
+
+    if (modeBadgeDelete) {
+      modeBadgeDelete.addEventListener('click', () => {
+        deleteMode = false;
+        document.body.classList.remove('delete-mode-active');
+        if (deleteModeBtn) {
+          deleteModeBtn.classList.remove('active');
+          deleteModeText.textContent = 'Delete';
+        }
+        modeBadgeDelete.classList.remove('show');
+        showToast('Delete mode turned off');
+      });
+    }
+
+    if (modeBadgeReorder) {
+      modeBadgeReorder.addEventListener('click', () => {
+        reorderMode = false;
+        if (reorderModeBtn) {
+          reorderModeBtn.classList.remove('active');
+          reorderModeText.textContent = 'Reorder';
+        }
+        linksContainer.querySelectorAll('.link-button').forEach((btn) => {
+          btn.classList.remove('reordering');
+        });
+        linksContainer.querySelectorAll('.section').forEach((sectionEl) => {
+          sectionEl.classList.remove('reordering');
+          sectionEl.classList.remove('drag-over');
+          const titleEl = sectionEl.querySelector('.section-title');
+          if (titleEl) titleEl.setAttribute('draggable', 'false');
+        });
+        updateSitesOrderFromDom();
+        updateSectionsOrderFromDom();
+        renderSidebarTabs();
+        modeBadgeReorder.classList.remove('show');
+        showToast('Reorder mode saved & turned off');
+      });
+    }
+
+    function getSectionIcon(name) {
+      const n = (name || '').toLowerCase();
+      if (n.includes('ai') || n.includes('code')) return '🤖';
+      if (n.includes('game') || n.includes('play') || n.includes('store')) return '🎮';
+      if (n.includes('board') || n.includes('doc') || n.includes('note')) return '📋';
+      if (n.includes('dev')) return '💻';
+      if (n.includes('design') || n.includes('art') || n.includes('img')) return '🎨';
+      if (n.includes('social') || n.includes('media') || n.includes('chat')) return '💬';
+      return '📁';
+    }
+
+    function switchTab(tabId) {
+      activeTabId = tabId;
+      localStorage.setItem('myfiles_active_tab', tabId);
+
+      // Update sidebar active classes
+      document.querySelectorAll('.sidebar-tab').forEach((el) => {
+        el.classList.toggle('active', el.dataset.tabId === tabId);
+      });
+
+      const titleEl = document.getElementById('active-tab-title');
+      const countEl = document.getElementById('active-tab-count');
+
+      if (tabId === 'all') {
+        if (titleEl) titleEl.textContent = 'All Bookmarks';
+        if (countEl) countEl.textContent = sites.length + ' Shortcuts';
+
+        document.querySelectorAll('.section').forEach((s) => {
+          s.classList.add('active-tab');
+          const title = s.querySelector('.section-title');
+          if (title) title.style.display = 'flex';
+          s.querySelectorAll('.link-button').forEach(btn => btn.style.display = 'flex');
+        });
+      } else {
+        const sec = sections.find((s) => s.id === tabId);
+        const count = sites.filter((s) => s.sectionId === tabId).length;
+        if (titleEl) titleEl.textContent = sec ? sec.name : 'Shortcuts';
+        if (countEl) countEl.textContent = count + ' Shortcuts';
+
+        document.querySelectorAll('.section').forEach((s) => {
+          const match = s.dataset.sectionId === tabId;
+          s.classList.toggle('active-tab', match);
+          const title = s.querySelector('.section-title');
+          if (title) title.style.display = 'none';
+          s.querySelectorAll('.link-button').forEach(btn => btn.style.display = 'flex');
+        });
+      }
+    }
+
+    function renderSidebarTabs() {
+      const container = document.getElementById('sidebar-tabs');
+      if (!container) return;
+      container.innerHTML = '';
+
+      // "All Bookmarks" tab
+      const allTab = document.createElement('div');
+      allTab.className = 'sidebar-tab' + (activeTabId === 'all' ? ' active' : '');
+      allTab.dataset.tabId = 'all';
+      allTab.innerHTML = `
+        <div class="tab-name">
+          <span class="tab-icon">📁</span>
+          <span>All Bookmarks</span>
+        </div>
+        <span class="tab-count">${sites.length}</span>
+      `;
+      allTab.addEventListener('click', () => {
+        if (quickSearchInput) quickSearchInput.value = '';
+        switchTab('all');
+      });
+      container.appendChild(allTab);
+
+      // Individual Section tabs
+      sections.forEach((section) => {
+        const count = sites.filter((s) => s.sectionId === section.id).length;
+        const tab = document.createElement('div');
+        tab.className = 'sidebar-tab' + (activeTabId === section.id ? ' active' : '');
+        tab.dataset.tabId = section.id;
+        tab.innerHTML = `
+          <div class="tab-name">
+            <span class="tab-icon">${getSectionIcon(section.name)}</span>
+            <span>${section.name}</span>
+          </div>
+          <span class="tab-count">${count}</span>
+        `;
+        tab.addEventListener('click', () => {
+          if (quickSearchInput) quickSearchInput.value = '';
+          switchTab(section.id);
+        });
+        container.appendChild(tab);
+      });
+
+      const stats = document.getElementById('sidebar-stats');
+      if (stats) stats.textContent = `${sections.length} Collections • ${sites.length} Links`;
+    }
+
+    // Toast Notification helper
+    let toastTimeout = null;
+    function showToast(msg) {
+      const toast = document.getElementById('toast-msg');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // IndexedDB for persisting data.json FileSystemFileHandle
+    const IDB_NAME = 'SearchEngineStorage';
+    const IDB_STORE = 'handles';
+
+    function openIDB() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(IDB_NAME, 1);
+        req.onupgradeneeded = () => req.result.createObjectStore(IDB_STORE);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function storeFileHandle(handle) {
+      try {
+        const db = await openIDB();
+        const tx = db.transaction(IDB_STORE, 'readwrite');
+        tx.objectStore(IDB_STORE).put(handle, 'dataJson');
+      } catch (e) {
+        console.warn('Could not persist file handle', e);
+      }
+    }
+
+    async function getStoredFileHandle() {
+      try {
+        const db = await openIDB();
+        return new Promise((resolve) => {
+          const tx = db.transaction(IDB_STORE, 'readonly');
+          const req = tx.objectStore(IDB_STORE).get('dataJson');
+          req.onsuccess = () => resolve(req.result || null);
+          req.onerror = () => resolve(null);
+        });
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function updateFileLinkUI(isLinked) {
+      const dot = document.getElementById('status-dot');
+      const sDot = document.getElementById('settings-status-dot');
+      const sFileStatus = document.getElementById('settings-file-status');
+      if (isLinked) {
+        if (linkFileBtn) {
+          linkFileBtn.classList.add('linked');
+          linkFileBtn.title = 'Linked to data.json (Auto-saving active)';
+        }
+        if (linkIcon) linkIcon.textContent = '🟢';
+        if (dot) dot.classList.add('active');
+        if (sDot) sDot.classList.add('active');
+        if (fileLinkStatus) {
+          fileLinkStatus.textContent = 'Auto-Save: Active';
+          fileLinkStatus.style.color = '#4ade80';
+        }
+        if (sFileStatus) {
+          sFileStatus.textContent = 'Auto-Save: Active (data.json)';
+          sFileStatus.style.color = '#4ade80';
+        }
+      } else {
+        if (linkFileBtn) {
+          linkFileBtn.classList.remove('linked');
+          linkFileBtn.title = 'Click to link data.json for automatic saving';
+        }
+        if (linkIcon) linkIcon.textContent = '🔗';
+        if (dot) dot.classList.remove('active');
+        if (sDot) sDot.classList.remove('active');
+        if (fileLinkStatus) {
+          fileLinkStatus.textContent = 'Auto-Save: Off';
+          fileLinkStatus.style.color = '#9ca3af';
+        }
+        if (sFileStatus) {
+          sFileStatus.textContent = 'Auto-Save: Off (click Link)';
+          sFileStatus.style.color = '#9ca3af';
+        }
+      }
+    }
+
+    async function saveToFileHandle() {
+      if (!fileHandle) return;
+      try {
+        const query = await fileHandle.queryPermission({ mode: 'readwrite' });
+        if (query !== 'granted') {
+          const req = await fileHandle.requestPermission({ mode: 'readwrite' });
+          if (req !== 'granted') {
+            updateFileLinkUI(false);
+            return;
+          }
+        }
+        const writable = await fileHandle.createWritable();
+        const payload = JSON.stringify({ sections, sites }, null, 2);
+        await writable.write(payload);
+        await writable.close();
+        updateFileLinkUI(true);
+        showToast('✓ Auto-saved to ' + (fileHandle.name || 'data.json'));
+      } catch (err) {
+        console.warn('Could not write to linked file:', err);
+      }
+    }
+
+    function scheduleFileAutoSave() {
+      if (!fileHandle) return;
+      clearTimeout(autoSaveTimer);
+      autoSaveTimer = setTimeout(() => {
+        saveToFileHandle();
+      }, 350);
+    }
+
+    async function linkDataFile() {
+      if (!window.showOpenFilePicker) {
+        alert('Direct file auto-saving is supported on Chrome, Edge, and Chromium browsers. On other browsers, use the Export JSON button to download data.json.');
+        return;
+      }
+      try {
+        const [handle] = await window.showOpenFilePicker({
+          types: [{
+            description: 'JSON file',
+            accept: { 'application/json': ['.json'] }
+          }],
+          multiple: false
+        });
+        if (!handle) return;
+        fileHandle = handle;
+        await storeFileHandle(handle);
+        updateFileLinkUI(true);
+        await saveToFileHandle();
+        showToast('🔗 Linked to ' + handle.name + '! Auto-save is active.');
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          console.warn('Error selecting file:', err);
+        }
+      }
+    }
+
+    async function onLinkButtonClick() {
+      if (fileHandle) {
+        try {
+          const perm = await fileHandle.requestPermission({ mode: 'readwrite' });
+          if (perm === 'granted') {
+            updateFileLinkUI(true);
+            await saveToFileHandle();
+            showToast('✓ Auto-save active for ' + fileHandle.name);
+            return;
+          }
+        } catch(e) {}
+      }
+      await linkDataFile();
+    }
+
+    const DEFAULT_SECTIONS = [
+      { id: "section-code-ai", name: "Code-Ai", order: 0 },
+      { id: "section-game-store", name: "Game-Store", order: 1 },
+      { id: "section-my-boards", name: "My_Boards", order: 2 },
+      { id: "section-developement", name: "Developement", order: 3 },
+      { id: "section-designing", name: "Designing", order: 4 },
+      { id: "section-social-apps", name: "Social Apps", order: 5 }
+    ];
+
+    const DEFAULT_SITES = [
+      { id: "site-chatgpt", name: "Chatgpt", domain: "chatgpt.com", url: "https://chatgpt.com", faviconUrl: "https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32", sectionId: "section-code-ai" },
+      { id: "site-gemini", name: "Gemini", domain: "gemini.google.com", url: "https://gemini.google.com", faviconUrl: "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=32", sectionId: "section-code-ai" },
+      { id: "site-copilot", name: "Copilot", domain: "copilot.microsoft.com", url: "https://copilot.microsoft.com", faviconUrl: "https://www.google.com/s2/favicons?domain=copilot.microsoft.com&sz=32", sectionId: "section-code-ai" },
+      { id: "site-grok", name: "Grok", domain: "grok.com", url: "https://grok.com", faviconUrl: "https://www.google.com/s2/favicons?domain=grok.com&sz=32", sectionId: "section-code-ai" },
+      { id: "site-chat", name: "Chat", domain: "chat.deepseek.com", url: "https://chat.deepseek.com", faviconUrl: "https://www.google.com/s2/favicons?domain=chat.deepseek.com&sz=32", sectionId: "section-code-ai" },
+      { id: "site-claude", name: "Claude", domain: "claude.ai", url: "https://claude.ai", faviconUrl: "https://www.google.com/s2/favicons?domain=claude.ai&sz=32", sectionId: "section-code-ai" },
+      { id: "site-meta", name: "Meta", domain: "meta.ai", url: "https://meta.ai", faviconUrl: "https://www.google.com/s2/favicons?domain=meta.ai&sz=32", sectionId: "section-code-ai" },
+      { id: "site-play", name: "Play", domain: "play.google.com", url: "https://play.google.com", faviconUrl: "https://www.google.com/s2/favicons?domain=play.google.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-apple-apps", name: "Apps", domain: "apps.apple.com", url: "https://apps.apple.com", faviconUrl: "https://www.google.com/s2/favicons?domain=apps.apple.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-poki", name: "Poki", domain: "poki.com", url: "https://poki.com", faviconUrl: "https://www.google.com/s2/favicons?domain=poki.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-ms-apps", name: "Apps", domain: "apps.microsoft.com", url: "https://apps.microsoft.com", faviconUrl: "https://www.google.com/s2/favicons?domain=apps.microsoft.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-epic-store", name: "Store", domain: "store.epicgames.com", url: "https://store.epicgames.com", faviconUrl: "https://www.google.com/s2/favicons?domain=store.epicgames.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-steam-store", name: "Store", domain: "store.steampowered.com", url: "https://store.steampowered.com", faviconUrl: "https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-crazygames", name: "Crazygames", domain: "crazygames.com", url: "https://crazygames.com", faviconUrl: "https://www.google.com/s2/favicons?domain=crazygames.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-xbox", name: "Xbox", domain: "xbox.com", url: "https://xbox.com", faviconUrl: "https://www.google.com/s2/favicons?domain=xbox.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-playstation-store", name: "Store", domain: "store.playstation.com", url: "https://store.playstation.com", faviconUrl: "https://www.google.com/s2/favicons?domain=store.playstation.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-galaxystore", name: "Galaxystore", domain: "galaxystore.samsung.com", url: "https://galaxystore.samsung.com", faviconUrl: "https://www.google.com/s2/favicons?domain=galaxystore.samsung.com&sz=32", sectionId: "section-game-store" },
+      { id: "site-cafebazaar", name: "Cafebazaar", domain: "cafebazaar.ir", url: "https://cafebazaar.ir", faviconUrl: "https://www.google.com/s2/favicons?domain=cafebazaar.ir&sz=32", sectionId: "section-game-store" },
+      { id: "site-figma", name: "Figma", domain: "figma.com", url: "https://figma.com", faviconUrl: "https://www.google.com/s2/favicons?domain=figma.com&sz=32", sectionId: "section-my-boards" },
+      { id: "site-miro", name: "Miro", domain: "miro.com", url: "https://miro.com", faviconUrl: "https://www.google.com/s2/favicons?domain=miro.com&sz=32", sectionId: "section-my-boards" },
+      { id: "site-excalidraw", name: "Excalidraw", domain: "excalidraw.com", url: "https://excalidraw.com", faviconUrl: "https://www.google.com/s2/favicons?domain=excalidraw.com&sz=32", sectionId: "section-my-boards" },
+      { id: "site-onenote", name: "Onenote", domain: "onenote.com", url: "https://onenote.com", faviconUrl: "https://www.google.com/s2/favicons?domain=onenote.com&sz=32", sectionId: "section-my-boards" },
+      { id: "site-docs", name: "Docs", domain: "docs.google.com", url: "https://docs.google.com", faviconUrl: "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32", sectionId: "section-my-boards" },
+      { id: "site-github", name: "Github", domain: "github.com", url: "https://github.com", faviconUrl: "https://www.google.com/s2/favicons?domain=github.com&sz=32", sectionId: "section-developement" },
+      { id: "site-magnific", name: "Magnific", domain: "magnific.ai", url: "https://magnific.ai", faviconUrl: "https://www.google.com/s2/favicons?domain=magnific.ai&sz=32", sectionId: "section-designing" },
+      { id: "site-pinterest", name: "Pinterest", domain: "pinterest.com", url: "https://pinterest.com", faviconUrl: "https://www.google.com/s2/favicons?domain=pinterest.com&sz=32", sectionId: "section-designing" },
+      { id: "site-iloveimg", name: "Iloveimg", domain: "iloveimg.com", url: "https://iloveimg.com", faviconUrl: "https://www.google.com/s2/favicons?domain=iloveimg.com&sz=32", sectionId: "section-designing" },
+      { id: "site-sketchfab", name: "Sketchfab", domain: "sketchfab.com", url: "https://sketchfab.com", faviconUrl: "https://www.google.com/s2/favicons?domain=sketchfab.com&sz=32", sectionId: "section-designing" },
+      { id: "site-reddit", name: "Reddit", domain: "reddit.com", url: "https://reddit.com", faviconUrl: "https://www.google.com/s2/favicons?domain=reddit.com&sz=32", sectionId: "section-social-apps" },
+      { id: "site-linkedin", name: "Linkedin", domain: "linkedin.com", url: "https://linkedin.com", faviconUrl: "https://www.google.com/s2/favicons?domain=linkedin.com&sz=32", sectionId: "section-social-apps" }
+    ];
+
+    function saveSites() {
+      try {
+        localStorage.setItem('myfiles_saved_sites', JSON.stringify(sites));
+        scheduleFileAutoSave();
+      } catch (e) {
+        console.warn('Could not save sites', e);
+      }
+    }
+
+    function saveSections() {
+      try {
+        localStorage.setItem('myfiles_saved_sections', JSON.stringify(sections));
+        scheduleFileAutoSave();
+      } catch (e) {
+        console.warn('Could not save sections', e);
+      }
+    }
+
+    function loadSites() {
+      try {
+        const raw = localStorage.getItem('myfiles_saved_sites');
+        if (!raw) return DEFAULT_SITES;
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      } catch (e) {
+        console.warn('Could not load sites', e);
+      }
+      return DEFAULT_SITES;
+    }
+
+    function loadSections() {
+      try {
+        const raw = localStorage.getItem('myfiles_saved_sections');
+        if (!raw) return DEFAULT_SECTIONS;
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      } catch (e) {
+        console.warn('Could not load sections', e);
+      }
+      return DEFAULT_SECTIONS;
+    }
+
+    function exportBackup() {
+      const data = {
+        sections: sections,
+        sites: sites
+      };
+      const jsonStr = JSON.stringify(data, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'data.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function importBackup(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (Array.isArray(parsed.sections) && Array.isArray(parsed.sites)) {
+            sections = parsed.sections;
+            sites = parsed.sites;
+            saveSections();
+            saveSites();
+            linksContainer.innerHTML = '';
+            sites.forEach(createSiteButton);
+            updateSectionDropdown();
+            renderSectionsList();
+            alert('Backup successfully imported!');
+          } else {
+            alert('Invalid backup file structure. Expected { sections: [...], sites: [...] }');
+          }
+        } catch (err) {
+          alert('Failed to parse backup JSON file: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function updateSectionDropdown() {
+      siteSectionSelect.innerHTML = '<option value="">Select or create section...</option>';
+      sections.forEach((section) => {
+        const option = document.createElement('option');
+        option.value = section.id;
+        option.textContent = section.name;
+        siteSectionSelect.appendChild(option);
+      });
+    }
+
+    function renderSectionsList() {
+      const container = document.getElementById('sections-list-container');
+      if (!container) return;
+      
+      container.innerHTML = '';
+      
+      if (sections.length === 0) {
+        const emptyMsg = document.createElement('div');
+        emptyMsg.style.color = '#6b7280';
+        emptyMsg.style.fontSize = '0.85rem';
+        emptyMsg.textContent = 'No sections yet. Create one above.';
+        container.appendChild(emptyMsg);
+        return;
+      }
+      
+      sections.forEach((section) => {
+        const item = document.createElement('div');
+        item.className = 'section-list-item';
+        
+        const name = document.createElement('div');
+        name.className = 'section-list-item-name';
+        name.textContent = section.name;
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'section-list-delete-btn';
+        deleteBtn.type = 'button';
+        deleteBtn.textContent = '×';
+        deleteBtn.title = 'Delete section';
+        deleteBtn.addEventListener('click', () => {
+          deleteSection(section.id);
+        });
+        
+        item.appendChild(name);
+        item.appendChild(deleteBtn);
+        container.appendChild(item);
+      });
+    }
+
+    function getOrCreateSection(sectionId) {
+      if (!sectionId) {
+        // Create default section if none exists
+        if (sections.length === 0) {
+          const defaultSection = {
+            id: 'default-' + Date.now(),
+            name: 'Default',
+            order: 0,
+          };
+          sections.push(defaultSection);
+          saveSections();
+          return defaultSection;
+        }
+        return sections[0];
+      }
+      return sections.find((s) => s.id === sectionId) || sections[0];
+    }
+
+    function getSectionElement(sectionId) {
+      const sectionEl = document.querySelector(`.section[data-section-id="${sectionId}"]`);
+      if (sectionEl) {
+        // Ensure drag handlers are set up
+        if (!sectionEl.hasAttribute('data-drag-setup')) {
+          const titleEl = sectionEl.querySelector('.section-title');
+          if (titleEl) {
+            setupSectionDragHandlers(sectionEl, titleEl, sectionId);
+            sectionEl.setAttribute('data-drag-setup', 'true');
+          }
+        }
+        return sectionEl;
+      }
+      
+      // Create section element if it doesn't exist
+      const section = getOrCreateSection(sectionId);
+      const newSectionEl = document.createElement('div');
+      newSectionEl.className = 'section';
+      newSectionEl.dataset.sectionId = section.id;
+      
+      const titleEl = document.createElement('div');
+      titleEl.className = 'section-title';
+      titleEl.textContent = section.name;
+      
+      const buttonsEl = document.createElement('div');
+      buttonsEl.className = 'section-buttons';
+      
+      newSectionEl.appendChild(titleEl);
+      newSectionEl.appendChild(buttonsEl);
+      
+      // Add drag handlers for section reordering (on title to avoid button conflicts)
+      setupSectionDragHandlers(newSectionEl, titleEl, section.id);
+      newSectionEl.setAttribute('data-drag-setup', 'true');
+      
+      // Insert in order
+      const allSections = Array.from(linksContainer.querySelectorAll('.section'));
+      let inserted = false;
+      for (let i = 0; i < sections.length; i++) {
+        const s = sections[i];
+        if (s.id === section.id) {
+          if (i === 0) {
+            linksContainer.insertBefore(newSectionEl, linksContainer.firstChild);
+          } else {
+            const prevSection = allSections.find((el) => el.dataset.sectionId === sections[i - 1].id);
+            if (prevSection) {
+              prevSection.parentNode.insertBefore(newSectionEl, prevSection.nextSibling);
+            } else {
+              linksContainer.appendChild(newSectionEl);
+            }
+          }
+          inserted = true;
+          break;
+        }
+      }
+      if (!inserted) {
+        linksContainer.appendChild(newSectionEl);
+      }
+      
+      return newSectionEl;
+    }
+
+    function setupSectionDragHandlers(sectionEl, titleEl, sectionId) {
+      // Attach drag handlers to title, but move the entire section
+      titleEl.addEventListener('dragstart', (e) => {
+        if (!reorderMode) {
+          e.preventDefault();
+          return;
+        }
+        e.stopPropagation();
+        dragSectionId = sectionId;
+        sectionEl.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+      });
+
+      titleEl.addEventListener('dragend', (e) => {
+        e.stopPropagation();
+        sectionEl.classList.remove('dragging');
+        dragSectionId = null;
+        // Remove drag-over class from all sections
+        linksContainer.querySelectorAll('.section').forEach((s) => {
+          s.classList.remove('drag-over');
+        });
+      });
+
+      // Handle dragover on the section element (for drop target)
+      sectionEl.addEventListener('dragover', (e) => {
+        if (!reorderMode || dragSectionId === null || dragSectionId === sectionId) return;
+        // Don't handle if dragging from within this section's buttons
+        if (e.target.closest('.section-buttons')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        e.dataTransfer.dropEffect = 'move';
+        
+        // Remove drag-over from all sections
+        linksContainer.querySelectorAll('.section').forEach((s) => {
+          s.classList.remove('drag-over');
+        });
+        
+        // Add drag-over to current section
+        sectionEl.classList.add('drag-over');
+      });
+
+      sectionEl.addEventListener('drop', (e) => {
+        if (!reorderMode || dragSectionId === null || dragSectionId === sectionId) return;
+        // Don't handle if dropping on buttons
+        if (e.target.closest('.section-buttons')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const draggedSection = linksContainer.querySelector(`.section[data-section-id="${dragSectionId}"]`);
+        if (draggedSection && draggedSection !== sectionEl) {
+          // Reorder in DOM - this moves the entire section with all its buttons
+          linksContainer.insertBefore(draggedSection, sectionEl);
+          
+          // Update sections array order
+          updateSectionsOrderFromDom();
+        }
+        
+        sectionEl.classList.remove('drag-over');
+      });
+    }
+
+    function updateSectionsOrderFromDom() {
+      const orderedIds = Array.from(linksContainer.querySelectorAll('.section')).map(
+        (sectionEl) => sectionEl.dataset.sectionId
+      );
+      
+      const map = new Map(sections.map((s) => [s.id, s]));
+      const reordered = [];
+      orderedIds.forEach((id) => {
+        const section = map.get(id);
+        if (section) {
+          section.order = reordered.length;
+          reordered.push(section);
+        }
+      });
+      
+      sections = reordered;
+      saveSections();
+    }
+
+    function deleteSection(sectionId) {
+      if (sections.length <= 1) {
+        alert('Cannot delete the last section. Create another section first.');
+        return;
+      }
+      
+      if (!confirm('Delete this section? Buttons in this section will be moved to the default section.')) {
+        return;
+      }
+      
+      // Find default section or first available section
+      const defaultSection = sections.find(s => s.name === 'Default') || sections.find(s => s.id !== sectionId);
+      if (!defaultSection) return;
+      
+      // Move all buttons from deleted section to default section
+      sites.forEach(site => {
+        if (site.sectionId === sectionId) {
+          site.sectionId = defaultSection.id;
+        }
+      });
+      
+      // Remove section from array
+      const sectionIndex = sections.findIndex(s => s.id === sectionId);
+      if (sectionIndex !== -1) {
+        sections.splice(sectionIndex, 1);
+        saveSections();
+      }
+      
+      // Remove section element from DOM
+      const sectionEl = document.querySelector(`.section[data-section-id="${sectionId}"]`);
+      if (sectionEl) {
+        const buttons = Array.from(sectionEl.querySelectorAll('.link-button'));
+        buttons.forEach(btn => {
+          btn.remove();
+        });
+        sectionEl.remove();
+      }
+      
+      // Re-render all buttons in their new sections
+      linksContainer.innerHTML = '';
+      sites.forEach(createSiteButton);
+      
+      // Update dropdown and sections list
+      updateSectionDropdown();
+      renderSectionsList();
+      renderSidebarTabs();
+      switchTab(sections[0]?.id || 'all');
+      
+      saveSites();
+    }
+
+    function updateSitesOrderFromDom() {
+      const reordered = [];
+      const sectionsEls = Array.from(linksContainer.querySelectorAll('.section'));
+      
+      sectionsEls.forEach((sectionEl) => {
+        const sectionId = sectionEl.dataset.sectionId;
+        const buttons = Array.from(sectionEl.querySelectorAll('.section-buttons button[data-id]'));
+        buttons.forEach((btn) => {
+          const site = sites.find((s) => s.id === btn.dataset.id);
+          if (site) {
+            site.sectionId = sectionId;
+            reordered.push(site);
+          }
+        });
+      });
+      
+      sites = reordered;
+      saveSites();
+    }
+
+    // ================= ATTACHED LINK THUMBNAIL PREVIEW (1-SEC HOVER) =================
+    let hoverTimer = null;
+    let closeTimer = null;
+    let activePreviewBtn = null;
+    let activePreviewSite = null;
+
+    const floatingPreview = document.getElementById('link-floating-preview');
+    const floatingImg = document.getElementById('floating-thumb-img');
+    const floatingLoader = document.getElementById('floating-thumb-loader');
+    const floatingTitle = document.getElementById('floating-thumb-title');
+    const floatingDesc = document.getElementById('floating-thumb-desc');
+    const floatingFavicon = document.getElementById('floating-thumb-favicon');
+    const floatingDomain = document.getElementById('floating-thumb-domain');
+
+    function positionFloatingPreview(btn) {
+      if (!floatingPreview || !btn) return;
+      const rect = btn.getBoundingClientRect();
+      const cardWidth = 250;
+
+      let left = rect.left;
+      if (left + cardWidth > window.innerWidth - 12) {
+        left = Math.max(12, rect.right - cardWidth);
+      }
+
+      let top = rect.bottom + 6;
+      if (top + 240 > window.innerHeight && rect.top - 240 > 10) {
+        top = rect.top - 240 - 6;
+      }
+
+      floatingPreview.style.top = `${top}px`;
+      floatingPreview.style.left = `${left}px`;
+      floatingPreview.style.width = `${cardWidth}px`;
+    }
+
+    function showButtonThumbnail(btn, site) {
+      if (deleteMode || reorderMode) return;
+      cancelClose();
+
+      if (activePreviewBtn === btn && floatingPreview && floatingPreview.style.display === 'flex') {
+        return;
+      }
+
+      activePreviewBtn = btn;
+      activePreviewSite = site;
+
+      if (floatingTitle) floatingTitle.textContent = site.name;
+      if (floatingFavicon) floatingFavicon.src = site.faviconUrl || '';
+
+      let domainStr = site.domain || '';
+      if (!domainStr && site.url) {
+        try {
+          domainStr = new URL(site.url).hostname.replace(/^www\./, '');
+        } catch (e) {
+          domainStr = site.url;
+        }
+      }
+      if (floatingDomain) floatingDomain.textContent = domainStr;
+
+      const sec = sections.find(s => s.id === site.sectionId);
+      const secName = sec ? sec.name : 'Shortcuts';
+      if (floatingDesc) {
+        floatingDesc.textContent = `${secName} collection • Click to visit ${domainStr}`;
+      }
+
+      if (floatingImg && floatingLoader) {
+        floatingImg.classList.remove('loaded');
+        floatingLoader.style.display = 'flex';
+        floatingLoader.innerHTML = `
+          <div class="floating-thumb-spinner"></div>
+          <span>Loading preview...</span>
+        `;
+
+        const primaryUrl = `https://s0.wp.com/mshots/v1/${encodeURIComponent(site.url)}?w=500`;
+        const fallbackUrl = `https://image.thum.io/get/width/500/crop/500/noanimate/${site.url}`;
+
+        const testImg = new Image();
+        testImg.onload = () => {
+          if (activePreviewSite === site) {
+            floatingImg.src = primaryUrl;
+            floatingImg.classList.add('loaded');
+            floatingLoader.style.display = 'none';
+          }
+        };
+        testImg.onerror = () => {
+          const fb = new Image();
+          fb.onload = () => {
+            if (activePreviewSite === site) {
+              floatingImg.src = fallbackUrl;
+              floatingImg.classList.add('loaded');
+              floatingLoader.style.display = 'none';
+            }
+          };
+          fb.onerror = () => {
+            if (activePreviewSite === site) {
+              floatingImg.classList.remove('loaded');
+              floatingLoader.innerHTML = `
+                <div style="font-size: 2rem; line-height: 1; margin-bottom: 0.25rem;">🌐</div>
+                <div style="font-weight: 600; color: var(--text-heading); font-size: 0.85rem;">${site.name}</div>
+              `;
+            }
+          };
+          fb.src = fallbackUrl;
+        };
+        testImg.src = primaryUrl;
+      }
+
+      positionFloatingPreview(btn);
+      floatingPreview.style.display = 'flex';
+    }
+
+    function closeButtonThumbnail() {
+      if (hoverTimer) {
+        clearTimeout(hoverTimer);
+        hoverTimer = null;
+      }
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      if (floatingPreview) floatingPreview.style.display = 'none';
+      activePreviewBtn = null;
+      activePreviewSite = null;
+    }
+
+    function scheduleClose() {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        closeButtonThumbnail();
+      }, 250);
+    }
+
+    function cancelClose() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    }
+
+    if (floatingPreview) {
+      floatingPreview.addEventListener('mouseenter', () => {
+        cancelClose();
+      });
+
+      floatingPreview.addEventListener('mouseleave', () => {
+        scheduleClose();
+      });
+
+      floatingPreview.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (activePreviewSite && activePreviewSite.url) {
+          window.open(activePreviewSite.url, '_blank');
+          closeButtonThumbnail();
+        }
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (floatingPreview && floatingPreview.style.display === 'flex') {
+        if (!floatingPreview.contains(e.target) && !e.target.closest('.link-button')) {
+          closeButtonThumbnail();
+        }
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (activePreviewBtn && floatingPreview && floatingPreview.style.display === 'flex') {
+        positionFloatingPreview(activePreviewBtn);
+      }
+    });
+
+    const linksScrollWrapper = document.querySelector('.links-scroll-wrapper');
+    if (linksScrollWrapper) {
+      linksScrollWrapper.addEventListener('scroll', () => {
+        if (activePreviewBtn && floatingPreview && floatingPreview.style.display === 'flex') {
+          positionFloatingPreview(activePreviewBtn);
+        }
+      }, { passive: true });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeButtonThumbnail();
+    });
+
+    function createSiteButton(site) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.dataset.id = site.id;
+      btn.classList.add('link-button');
+
+      const icon = document.createElement('img');
+      icon.className = 'link-icon';
+      icon.src = site.faviconUrl;
+      icon.alt = '';
+
+      const label = document.createElement('span');
+      label.className = 'link-label';
+      label.textContent = site.name;
+
+      btn.appendChild(icon);
+      btn.appendChild(label);
+
+      // Auto-show thumbnail preview on 1-second continuous hover
+      btn.addEventListener('mouseenter', () => {
+        cancelClose();
+        if (hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(() => {
+          showButtonThumbnail(btn, site);
+        }, 1000);
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (hoverTimer) {
+          clearTimeout(hoverTimer);
+          hoverTimer = null;
+        }
+        scheduleClose();
+      });
+
+      btn.addEventListener('dragstart', (e) => {
+        if (!reorderMode) {
+          e.preventDefault();
+          return;
+        }
+        dragSourceId = site.id;
+        btn.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+      });
+
+      btn.addEventListener('dragend', () => {
+        btn.classList.remove('dragging');
+        dragSourceId = null;
+      });
+
+      btn.addEventListener('dragover', (e) => {
+        if (!reorderMode || dragSourceId === null || dragSourceId === site.id) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+      });
+
+      btn.addEventListener('drop', (e) => {
+        if (!reorderMode || dragSourceId === null || dragSourceId === site.id) return;
+        e.preventDefault();
+        const dragged = linksContainer.querySelector(`button[data-id="${dragSourceId}"]`);
+        if (dragged && dragged !== btn) {
+          const buttonsContainer = btn.closest('.section-buttons');
+          if (buttonsContainer) {
+            buttonsContainer.insertBefore(dragged, btn);
+            updateSitesOrderFromDom();
+          }
+        }
+      });
+
+      btn.addEventListener('click', () => {
+        closeButtonThumbnail();
+        if (deleteMode) {
+          const idx = sites.findIndex((s) => s.id === site.id);
+          if (idx !== -1) {
+            sites.splice(idx, 1);
+            saveSites();
+            renderSidebarTabs();
+            switchTab(activeTabId);
+          }
+          btn.remove();
+          // Remove section if empty
+          const sectionEl = btn.closest('.section');
+          if (sectionEl) {
+            const buttonsContainer = sectionEl.querySelector('.section-buttons');
+            if (buttonsContainer && buttonsContainer.children.length === 0) {
+              sectionEl.remove();
+            }
+          }
+        } else if (reorderMode) {
+          // Reorder mode: prompt for index
+          const buttonsContainer = btn.closest('.section-buttons');
+          if (!buttonsContainer) return;
+          
+          const allButtons = Array.from(buttonsContainer.querySelectorAll('.link-button'));
+          const maxIndex = allButtons.length - 1;
+          
+          const indexInput = prompt(
+            `Enter position (0-${maxIndex}) to move "${site.name}" to:\n\nCurrent position: ${allButtons.indexOf(btn)}`,
+            allButtons.indexOf(btn).toString()
+          );
+          
+          if (indexInput === null) return; // User cancelled
+          
+          const targetIndex = parseInt(indexInput, 10);
+          if (isNaN(targetIndex) || targetIndex < 0 || targetIndex > maxIndex) {
+            alert(`Please enter a valid number between 0 and ${maxIndex}`);
+            return;
+          }
+          
+          const currentIndex = allButtons.indexOf(btn);
+          if (currentIndex === targetIndex) return; // Already at target position
+          
+          // Remove button from current position
+          btn.remove();
+          
+          // Insert at target position
+          if (targetIndex === 0) {
+            buttonsContainer.insertBefore(btn, buttonsContainer.firstChild);
+          } else if (targetIndex >= allButtons.length - 1) {
+            buttonsContainer.appendChild(btn);
+          } else {
+            const targetButton = allButtons[targetIndex];
+            buttonsContainer.insertBefore(btn, targetButton);
+          }
+          
+          // Update order
+          updateSitesOrderFromDom();
+        } else {
+          window.open(site.url, '_blank');
+        }
+      });
+
+      const sectionId = site.sectionId || (sections.length > 0 ? sections[0].id : null);
+      const sectionEl = getSectionElement(sectionId);
+      const buttonsContainer = sectionEl.querySelector('.section-buttons');
+      buttonsContainer.appendChild(btn);
+    }
+
+    function openPanel() {
+      updateSectionDropdown();
+      renderSectionsList();
+      if (activeTabId && activeTabId !== 'all') {
+        siteSectionSelect.value = activeTabId;
+      }
+      panelBackdrop.style.display = 'flex';
+      siteDomainInput.focus();
+    }
+
+    function closePanel() {
+      panelBackdrop.style.display = 'none';
+      siteDomainInput.value = '';
+      if (siteNameInput) siteNameInput.value = '';
+      siteSectionSelect.value = '';
+      sectionNewInput.value = '';
+      sectionNewInput.classList.remove('show');
+    }
+
+    openPanelBtn.addEventListener('click', openPanel);
+    cancelPanelBtn.addEventListener('click', closePanel);
+
+    panelBackdrop.addEventListener('click', (event) => {
+      if (event.target === panelBackdrop) {
+        closePanel();
+      }
+    });
+
+    const deleteModeText = document.getElementById('delete-mode-text');
+    const reorderModeText = document.getElementById('reorder-mode-text');
+
+    deleteModeBtn.addEventListener('click', () => {
+      deleteMode = !deleteMode;
+      document.body.classList.toggle('delete-mode-active', deleteMode);
+      if (deleteMode) {
+        deleteModeBtn.classList.add('active');
+        deleteModeText.textContent = 'Delete: On';
+        if (modeBadgeDelete) modeBadgeDelete.classList.add('show');
+        closeSettings();
+        showToast('🗑️ Delete Mode: Click any shortcut to remove it');
+      } else {
+        deleteModeBtn.classList.remove('active');
+        deleteModeText.textContent = 'Delete';
+        if (modeBadgeDelete) modeBadgeDelete.classList.remove('show');
+      }
+    });
+
+    reorderModeBtn.addEventListener('click', () => {
+      reorderMode = !reorderMode;
+      if (reorderMode) {
+        reorderModeBtn.classList.add('active');
+        reorderModeText.textContent = 'Reorder: On';
+        if (modeBadgeReorder) modeBadgeReorder.classList.add('show');
+        closeSettings();
+        showToast('⇅ Reorder Mode: Drag shortcuts or sections');
+        // Enable button reordering (click to reorder by index)
+        linksContainer.querySelectorAll('.link-button').forEach((btn) => {
+          btn.classList.add('reordering');
+        });
+        // Enable section reordering (on title)
+        linksContainer.querySelectorAll('.section').forEach((sectionEl) => {
+          sectionEl.classList.add('reordering');
+          const titleEl = sectionEl.querySelector('.section-title');
+          if (titleEl) {
+            titleEl.setAttribute('draggable', 'true');
+          }
+        });
+      } else {
+        reorderModeBtn.classList.remove('active');
+        reorderModeText.textContent = 'Reorder';
+        if (modeBadgeReorder) modeBadgeReorder.classList.remove('show');
+        // Disable button reordering
+        linksContainer.querySelectorAll('.link-button').forEach((btn) => {
+          btn.classList.remove('reordering');
+        });
+        // Disable section reordering (on title)
+        linksContainer.querySelectorAll('.section').forEach((sectionEl) => {
+          sectionEl.classList.remove('reordering');
+          sectionEl.classList.remove('drag-over');
+          const titleEl = sectionEl.querySelector('.section-title');
+          if (titleEl) {
+            titleEl.setAttribute('draggable', 'false');
+          }
+        });
+        updateSitesOrderFromDom();
+        updateSectionsOrderFromDom();
+        renderSidebarTabs();
+      }
+    });
+
+    newSectionBtn.addEventListener('click', () => {
+      sectionNewInput.classList.toggle('show');
+      if (sectionNewInput.classList.contains('show')) {
+        sectionNewInput.focus();
+      } else {
+        sectionNewInput.value = '';
+      }
+    });
+
+    sectionNewInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const name = sectionNewInput.value.trim();
+        if (name) {
+          const newSection = {
+            id: 'section-' + Date.now() + Math.random().toString(16).slice(2),
+            name: name,
+            order: sections.length,
+          };
+          sections.push(newSection);
+          saveSections();
+          updateSectionDropdown();
+          renderSectionsList();
+          renderSidebarTabs();
+          switchTab(newSection.id);
+          siteSectionSelect.value = newSection.id;
+          sectionNewInput.value = '';
+          sectionNewInput.classList.remove('show');
+        }
+      }
+    });
+
+    if (sidebarAddSectionBtn) {
+      sidebarAddSectionBtn.addEventListener('click', () => {
+        const name = prompt('Enter new section/tab name:');
+        if (name && name.trim()) {
+          const newSection = {
+            id: 'section-' + Date.now() + Math.random().toString(16).slice(2),
+            name: name.trim(),
+            order: sections.length,
+          };
+          sections.push(newSection);
+          saveSections();
+          updateSectionDropdown();
+          renderSectionsList();
+          renderSidebarTabs();
+          switchTab(newSection.id);
+        }
+      });
+    }
+
+    if (quickSearchInput) {
+      quickSearchInput.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        if (!q) {
+          switchTab(activeTabId);
+          return;
+        }
+        let totalMatches = 0;
+        document.querySelectorAll('.section').forEach((sectionEl) => {
+          let hasMatch = false;
+          sectionEl.querySelectorAll('.link-button').forEach((btn) => {
+            const text = btn.textContent.toLowerCase();
+            const match = text.includes(q);
+            btn.style.display = match ? 'flex' : 'none';
+            if (match) {
+              hasMatch = true;
+              totalMatches++;
+            }
+          });
+          sectionEl.classList.toggle('active-tab', hasMatch);
+          const title = sectionEl.querySelector('.section-title');
+          if (title) title.style.display = 'flex';
+        });
+        if (activeTabTitle) activeTabTitle.textContent = `Search: "${q}"`;
+        if (activeTabCount) activeTabCount.textContent = `${totalMatches} Results`;
+      });
+    }
+
+    createSiteBtn.addEventListener('click', () => {
+      const domain = siteDomainInput.value.trim();
+
+      if (!domain) {
+        alert('Please enter the domain.');
+        return;
+      }
+
+      let url = domain;
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+
+      // Derive domain for favicon (strip protocol and path)
+      const domainOnly = domain.replace(/^https?:\/\//i, '').split('/')[0];
+
+      // Derive a readable name from the domain
+      let base = domainOnly.toLowerCase();
+      if (base.startsWith('www.')) {
+        base = base.slice(4);
+      }
+      const firstPart = base.split('.')[0] || base;
+      const derivedName = firstPart.charAt(0).toUpperCase() + firstPart.slice(1);
+
+      // Use custom button text if written, otherwise use auto-derived name
+      const customText = siteNameInput ? siteNameInput.value.trim() : '';
+      const name = customText || derivedName;
+
+      const faviconUrl =
+        'https://www.google.com/s2/favicons?domain=' +
+        encodeURIComponent(domainOnly) +
+        '&sz=32';
+
+      // Get selected section or create default
+      let sectionId = siteSectionSelect.value;
+      if (!sectionId && sections.length === 0) {
+        // Create default section if none exists
+        const defaultSection = {
+          id: 'default-' + Date.now(),
+          name: 'Default',
+          order: 0,
+        };
+        sections.push(defaultSection);
+        saveSections();
+        sectionId = defaultSection.id;
+      } else if (!sectionId) {
+        sectionId = sections[0].id;
+      }
+
+      const site = {
+        id: Date.now().toString() + Math.random().toString(16).slice(2),
+        name,
+        domain,
+        url,
+        faviconUrl,
+        sectionId: sectionId || null,
+      };
+
+      sites.push(site);
+      saveSites();
+      createSiteButton(site);
+      closePanel();
+      renderSidebarTabs();
+      switchTab(site.sectionId);
+    });
+
+    if (siteDomainInput) {
+      siteDomainInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') createSiteBtn.click();
+      });
+    }
+    if (siteNameInput) {
+      siteNameInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') createSiteBtn.click();
+      });
+    }
+
+    // Load saved data on page load
+    sections = loadSections();
+    sites = loadSites();
+    
+    // Sort sections by order
+    sections.sort((a, b) => (a.order || 0) - (b.order || 0));
+    
+    // Create default section if none exists and we have sites
+    if (sections.length === 0 && sites.length > 0) {
+      const defaultSection = {
+        id: 'default-' + Date.now(),
+        name: 'Default',
+        order: 0,
+      };
+      sections.push(defaultSection);
+      saveSections();
+    }
+  
+
+
+    // Render all buttons in their sections
+    sites.forEach(createSiteButton);
+
+    // Initialize Sidebar Tabs & Active Tab
+    if (!sections.some(s => s.id === activeTabId) && activeTabId !== 'all') {
+      activeTabId = sections.length > 0 ? sections[0].id : 'all';
+    }
+    renderSidebarTabs();
+    switchTab(activeTabId);
+
+
+// -------------------- NEW: Reorder Section Panel --------------------
+const reorderSectionBtn = document.getElementById('reorder-section-btn');
+const reorderPanel = document.getElementById('reorder-section-panel');
+const reorderSectionSelect = document.getElementById('reorder-section-select');
+const reorderSectionIndex = document.getElementById('reorder-section-index');
+const cancelReorderSectionBtn = document.getElementById('cancel-reorder-section-btn');
+const applyReorderSectionBtn = document.getElementById('apply-reorder-section-btn');
+
+// Open panel
+reorderSectionBtn.addEventListener('click', () => {
+  closeSettings();
+  reorderSectionSelect.innerHTML = '<option value="">Select a section...</option>';
+  sections.forEach((s, idx) => {
+    const opt = document.createElement('option');
+    opt.value = s.id;
+    opt.textContent = `${s.name} (current: ${idx})`;
+    reorderSectionSelect.appendChild(opt);
+  });
+
+  reorderSectionIndex.value = '';
+  reorderPanel.style.display = 'flex';
+});
+
+// Close panel
+cancelReorderSectionBtn.addEventListener('click', () => {
+  reorderPanel.style.display = 'none';
+});
+
+// Apply reorder
+applyReorderSectionBtn.addEventListener('click', () => {
+  const sectionId = reorderSectionSelect.value;
+  const newIndex = parseInt(reorderSectionIndex.value, 10);
+
+  if (!sectionId) {
+    alert('Please select a section.');
+    return;
+  }
+
+  if (isNaN(newIndex) || newIndex < 0 || newIndex >= sections.length) {
+    alert(`Please enter a valid position between 0 and ${sections.length - 1}`);
+    return;
+  }
+
+  // Find current index
+  const currentIndex = sections.findIndex(s => s.id === sectionId);
+  if (currentIndex === -1) return;
+
+  // Remove section from array
+  const [section] = sections.splice(currentIndex, 1);
+
+  // Insert at new index
+  sections.splice(newIndex, 0, section);
+
+  // Update order properties
+  sections.forEach((s, idx) => s.order = idx);
+
+  saveSections();
+
+  // Re-render sections and buttons
+  linksContainer.innerHTML = '';
+  sites.forEach(createSiteButton);
+
+  reorderPanel.style.display = 'none';
+  renderSidebarTabs();
+  switchTab(activeTabId);
+});
+
+// -------------------- Backup & Restore Handlers --------------------
+if (exportBackupBtn) exportBackupBtn.addEventListener('click', exportBackup);
+if (quickExportBtn) quickExportBtn.addEventListener('click', exportBackup);
+
+if (importBackupBtn) {
+  importBackupBtn.addEventListener('click', () => {
+    if (importFileInput) importFileInput.click();
+  });
+}
+if (quickImportBtn) {
+  quickImportBtn.addEventListener('click', () => {
+    if (importFileInput) importFileInput.click();
+  });
+}
+
+if (importFileInput) {
+  importFileInput.addEventListener('change', (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      importBackup(file);
+      importFileInput.value = '';
+    }
+  });
+}
+
+// -------------------- File Auto-Save Handlers --------------------
+if (linkFileBtn) linkFileBtn.addEventListener('click', onLinkButtonClick);
+if (panelLinkFileBtn) panelLinkFileBtn.addEventListener('click', onLinkButtonClick);
+
+// On startup: check for saved fileHandle and restore auto-saving
+(async function initLinkedFile() {
+  try {
+    const savedHandle = await getStoredFileHandle();
+    if (savedHandle) {
+      fileHandle = savedHandle;
+      const perm = await fileHandle.queryPermission({ mode: 'readwrite' });
+      updateFileLinkUI(perm === 'granted');
+    } else {
+      updateFileLinkUI(false);
+    }
+  } catch (e) {
+    updateFileLinkUI(false);
+  }
+})();
+    
+  </script>
+  <div class="toast-msg" id="toast-msg"></div>
+</body>
+</html>
