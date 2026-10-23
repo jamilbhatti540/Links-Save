@@ -31,8 +31,8 @@
       "order": 5
     },
     {
-      "id": "section-17927481898252deec9537a2e9",
-      "name": "Testing",
+      "id": "section-17927611062740356ef9acd63c8",
+      "name": "Jamil",
       "order": 6
     }
   ],
@@ -278,20 +278,28 @@
       "sectionId": "section-social-apps"
     },
     {
-      "id": "179274819466412fb911ec248a",
-      "name": "Figma",
-      "domain": "https://www.figma.com/board/O413Yse4TBjTiIVGfcTBoz/GameConcepts?node-id=0-1&p=f&t=GuNKK9B0qc8wYBYa-0",
-      "url": "https://www.figma.com/board/O413Yse4TBjTiIVGfcTBoz/GameConcepts?node-id=0-1&p=f&t=GuNKK9B0qc8wYBYa-0",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.figma.com&sz=32",
-      "sectionId": "section-17927481898252deec9537a2e9"
+      "id": "1792761035318b773885aa29fd8",
+      "name": "Jamil",
+      "domain": "jamil",
+      "url": "https://jamil",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=jamil&sz=32",
+      "sectionId": "section-code-ai"
     },
     {
-      "id": "1792749116776cf5bb9b9a5eae",
-      "name": "Play",
-      "domain": "https://play.google.com/store/apps/details?id=com.jungle.roll",
-      "url": "https://play.google.com/store/apps/details?id=com.jungle.roll",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=play.google.com&sz=32",
-      "sectionId": "section-17927481898252deec9537a2e9"
+      "id": "1792761064652ce70c82fc3df18",
+      "name": "Jamil",
+      "domain": "facebook.com",
+      "url": "https://facebook.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=facebook.com&sz=32",
+      "sectionId": "section-code-ai"
+    },
+    {
+      "id": "1792761125691cc688e384d11f8",
+      "name": "Jamil",
+      "domain": "jamil",
+      "url": "https://jamil",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=jamil&sz=32",
+      "sectionId": "section-17927611062740356ef9acd63c8"
     }
   ]
 }
