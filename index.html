@@ -1234,6 +1234,11 @@
               <span id="link-icon">🔗</span> Link data.json
             </button>
           </div>
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <button type="button" id="quick-sync-btn" class="btn btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem;" title="Fetch latest data.json from GitHub / server">
+              <span>🔄</span> Sync data.json
+            </button>
+          </div>
           <div style="display: flex; gap: 0.5rem;">
             <button type="button" id="quick-export-btn" class="btn btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem;">
               <span>💾</span> Export JSON
@@ -1341,7 +1346,7 @@
     let sections = [];
     let fileHandle = null;
     let autoSaveTimer = null;
-    let activeTabId = localStorage.getItem('myfiles_active_tab') || 'section-code-ai';
+    let activeTabId = localStorage.getItem('myfiles_active_tab') || 'section-1770285123324920ef70ed1a85';
 
     // ================= THEME (BRIGHT / DARK MODE) =================
     const THEME_STORAGE_KEY = 'myfiles_theme';
@@ -1769,59 +1774,64 @@
     }
 
     const DEFAULT_SECTIONS = [
-      { id: "section-code-ai", name: "Code-Ai", order: 0 },
-      { id: "section-game-store", name: "Game-Store", order: 1 },
-      { id: "section-my-boards", name: "My_Boards", order: 2 },
-      { id: "section-developement", name: "Developement", order: 3 },
-      { id: "section-designing", name: "Designing", order: 4 },
-      { id: "section-social-apps", name: "Social Apps", order: 5 }
+      { id: "section-1770285123324920ef70ed1a85", name: "Code-Ai", order: 0 },
+      { id: "section-17702860805989270733efc83d", name: "Game-Store", order: 2 },
+      { id: "section-1792769298367641e8ed4300bb", name: "Testing", order: 6 },
+      { id: "section-17879974356520601ea04455e4", name: "My_Boards", order: 7 },
+      { id: "section-1792669413766766ec1f3e02d48", name: "Developement", order: 7 },
+      { id: "section-178859476377191b772d79951", name: "Designing", order: 8 },
+      { id: "section-1789736935248205e5953c20f38", name: "Social Apps", order: 8 }
     ];
 
     const DEFAULT_SITES = [
-      { id: "site-chatgpt", name: "Chatgpt", domain: "chatgpt.com", url: "https://chatgpt.com", faviconUrl: "https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32", sectionId: "section-code-ai" },
-      { id: "site-gemini", name: "Gemini", domain: "gemini.google.com", url: "https://gemini.google.com", faviconUrl: "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=32", sectionId: "section-code-ai" },
-      { id: "site-copilot", name: "Copilot", domain: "copilot.microsoft.com", url: "https://copilot.microsoft.com", faviconUrl: "https://www.google.com/s2/favicons?domain=copilot.microsoft.com&sz=32", sectionId: "section-code-ai" },
-      { id: "site-grok", name: "Grok", domain: "grok.com", url: "https://grok.com", faviconUrl: "https://www.google.com/s2/favicons?domain=grok.com&sz=32", sectionId: "section-code-ai" },
-      { id: "site-chat", name: "Chat", domain: "chat.deepseek.com", url: "https://chat.deepseek.com", faviconUrl: "https://www.google.com/s2/favicons?domain=chat.deepseek.com&sz=32", sectionId: "section-code-ai" },
-      { id: "site-claude", name: "Claude", domain: "claude.ai", url: "https://claude.ai", faviconUrl: "https://www.google.com/s2/favicons?domain=claude.ai&sz=32", sectionId: "section-code-ai" },
-      { id: "site-meta", name: "Meta", domain: "meta.ai", url: "https://meta.ai", faviconUrl: "https://www.google.com/s2/favicons?domain=meta.ai&sz=32", sectionId: "section-code-ai" },
-      { id: "site-play", name: "Play", domain: "play.google.com", url: "https://play.google.com", faviconUrl: "https://www.google.com/s2/favicons?domain=play.google.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-apple-apps", name: "Apps", domain: "apps.apple.com", url: "https://apps.apple.com", faviconUrl: "https://www.google.com/s2/favicons?domain=apps.apple.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-poki", name: "Poki", domain: "poki.com", url: "https://poki.com", faviconUrl: "https://www.google.com/s2/favicons?domain=poki.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-ms-apps", name: "Apps", domain: "apps.microsoft.com", url: "https://apps.microsoft.com", faviconUrl: "https://www.google.com/s2/favicons?domain=apps.microsoft.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-epic-store", name: "Store", domain: "store.epicgames.com", url: "https://store.epicgames.com", faviconUrl: "https://www.google.com/s2/favicons?domain=store.epicgames.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-steam-store", name: "Store", domain: "store.steampowered.com", url: "https://store.steampowered.com", faviconUrl: "https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-crazygames", name: "Crazygames", domain: "crazygames.com", url: "https://crazygames.com", faviconUrl: "https://www.google.com/s2/favicons?domain=crazygames.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-xbox", name: "Xbox", domain: "xbox.com", url: "https://xbox.com", faviconUrl: "https://www.google.com/s2/favicons?domain=xbox.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-playstation-store", name: "Store", domain: "store.playstation.com", url: "https://store.playstation.com", faviconUrl: "https://www.google.com/s2/favicons?domain=store.playstation.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-galaxystore", name: "Galaxystore", domain: "galaxystore.samsung.com", url: "https://galaxystore.samsung.com", faviconUrl: "https://www.google.com/s2/favicons?domain=galaxystore.samsung.com&sz=32", sectionId: "section-game-store" },
-      { id: "site-cafebazaar", name: "Cafebazaar", domain: "cafebazaar.ir", url: "https://cafebazaar.ir", faviconUrl: "https://www.google.com/s2/favicons?domain=cafebazaar.ir&sz=32", sectionId: "section-game-store" },
-      { id: "site-figma", name: "Figma", domain: "figma.com", url: "https://figma.com", faviconUrl: "https://www.google.com/s2/favicons?domain=figma.com&sz=32", sectionId: "section-my-boards" },
-      { id: "site-miro", name: "Miro", domain: "miro.com", url: "https://miro.com", faviconUrl: "https://www.google.com/s2/favicons?domain=miro.com&sz=32", sectionId: "section-my-boards" },
-      { id: "site-excalidraw", name: "Excalidraw", domain: "excalidraw.com", url: "https://excalidraw.com", faviconUrl: "https://www.google.com/s2/favicons?domain=excalidraw.com&sz=32", sectionId: "section-my-boards" },
-      { id: "site-onenote", name: "Onenote", domain: "onenote.com", url: "https://onenote.com", faviconUrl: "https://www.google.com/s2/favicons?domain=onenote.com&sz=32", sectionId: "section-my-boards" },
-      { id: "site-docs", name: "Docs", domain: "docs.google.com", url: "https://docs.google.com", faviconUrl: "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32", sectionId: "section-my-boards" },
-      { id: "site-github", name: "Github", domain: "github.com", url: "https://github.com", faviconUrl: "https://www.google.com/s2/favicons?domain=github.com&sz=32", sectionId: "section-developement" },
-      { id: "site-magnific", name: "Magnific", domain: "magnific.ai", url: "https://magnific.ai", faviconUrl: "https://www.google.com/s2/favicons?domain=magnific.ai&sz=32", sectionId: "section-designing" },
-      { id: "site-pinterest", name: "Pinterest", domain: "pinterest.com", url: "https://pinterest.com", faviconUrl: "https://www.google.com/s2/favicons?domain=pinterest.com&sz=32", sectionId: "section-designing" },
-      { id: "site-iloveimg", name: "Iloveimg", domain: "iloveimg.com", url: "https://iloveimg.com", faviconUrl: "https://www.google.com/s2/favicons?domain=iloveimg.com&sz=32", sectionId: "section-designing" },
-      { id: "site-sketchfab", name: "Sketchfab", domain: "sketchfab.com", url: "https://sketchfab.com", faviconUrl: "https://www.google.com/s2/favicons?domain=sketchfab.com&sz=32", sectionId: "section-designing" },
-      { id: "site-reddit", name: "Reddit", domain: "reddit.com", url: "https://reddit.com", faviconUrl: "https://www.google.com/s2/favicons?domain=reddit.com&sz=32", sectionId: "section-social-apps" },
-      { id: "site-linkedin", name: "Linkedin", domain: "linkedin.com", url: "https://linkedin.com", faviconUrl: "https://www.google.com/s2/favicons?domain=linkedin.com&sz=32", sectionId: "section-social-apps" }
+      { id: "1787924131044a579f661b8ea6", name: "Chatgpt", domain: "https://chatgpt.com/", url: "https://chatgpt.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=chatgpt.com&sz=32", sectionId: "section-1770285123324920ef70ed1a85" },
+      { id: "1787924213979d641bd3aa0a36", name: "Gemini", domain: "https://gemini.google.com/", url: "https://gemini.google.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=gemini.google.com&sz=32", sectionId: "section-1770285123324920ef70ed1a85" },
+      { id: "178792422858763f44487c4739", name: "Copilot", domain: "https://copilot.microsoft.com/", url: "https://copilot.microsoft.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=copilot.microsoft.com&sz=32", sectionId: "section-1770285123324920ef70ed1a85" },
+      { id: "178792424693130829e517a1878", name: "Grok", domain: "https://grok.com/", url: "https://grok.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=grok.com&sz=32", sectionId: "section-1770285123324920ef70ed1a85" },
+      { id: "178792433913908a88b7c262e4", name: "Chat", domain: "https://chat.deepseek.com/", url: "https://chat.deepseek.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=chat.deepseek.com&sz=32", sectionId: "section-1770285123324920ef70ed1a85" },
+      { id: "178792438086780e8d53a6cb26", name: "Claude", domain: "https://claude.ai/new", url: "https://claude.ai/new", faviconUrl: "https://www.google.com/s2/favicons?domain=claude.ai&sz=32", sectionId: "section-1770285123324920ef70ed1a85" },
+      { id: "1787924421875ba4b483c0de4e", name: "Play", domain: "https://play.google.com/store/games?device=phone", url: "https://play.google.com/store/games?device=phone", faviconUrl: "https://www.google.com/s2/favicons?domain=play.google.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "1787924445379d8551b071ea9b8", name: "Apps", domain: "https://apps.apple.com/us/iphone/games", url: "https://apps.apple.com/us/iphone/games", faviconUrl: "https://www.google.com/s2/favicons?domain=apps.apple.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "17879244623390008cb9a52a7e8", name: "Poki", domain: "https://poki.com/", url: "https://poki.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=poki.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "1787924488835a434af5a2c7478", name: "Apps", domain: "https://apps.microsoft.com/games?hl=en-GB&gl=PK", url: "https://apps.microsoft.com/games?hl=en-GB&gl=PK", faviconUrl: "https://www.google.com/s2/favicons?domain=apps.microsoft.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "17879245059158f13322b7f925", name: "Store", domain: "https://store.epicgames.com/en-US", url: "https://store.epicgames.com/en-US", faviconUrl: "https://www.google.com/s2/favicons?domain=store.epicgames.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "17879245225711ff896edf54458", name: "Store", domain: "https://store.steampowered.com/", url: "https://store.steampowered.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "17879245373473b25047fff0418", name: "Crazygames", domain: "https://www.crazygames.com/", url: "https://www.crazygames.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=www.crazygames.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "17879245518278e361d5016d698", name: "Xbox", domain: "https://www.xbox.com/en-US/games/browse", url: "https://www.xbox.com/en-US/games/browse", faviconUrl: "https://www.google.com/s2/favicons?domain=www.xbox.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "1787924591171931d91386c27b8", name: "Store", domain: "https://store.playstation.com/en-us/pages/browse", url: "https://store.playstation.com/en-us/pages/browse", faviconUrl: "https://www.google.com/s2/favicons?domain=store.playstation.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "1787997509813e44493168d9908", name: "Figma", domain: "https://www.figma.com/files/team/1356302602899196549/recents-and-sharing/recently-viewed?fuid=1356302601192452688", url: "https://www.figma.com/files/team/1356302602899196549/recents-and-sharing/recently-viewed?fuid=1356302601192452688", faviconUrl: "https://www.google.com/s2/favicons?domain=www.figma.com&sz=32", sectionId: "section-17879974356520601ea04455e4" },
+      { id: "1787997549260db9959e99cf128", name: "Miro", domain: "https://miro.com/app/dashboard/org/3458764680970193586/team/3458764680970193591/", url: "https://miro.com/app/dashboard/org/3458764680970193586/team/3458764680970193591/", faviconUrl: "https://www.google.com/s2/favicons?domain=miro.com&sz=32", sectionId: "section-17879974356520601ea04455e4" },
+      { id: "17879975762206d1fb211387b78", name: "Excalidraw", domain: "https://excalidraw.com/", url: "https://excalidraw.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=excalidraw.com&sz=32", sectionId: "section-17879974356520601ea04455e4" },
+      { id: "17885947671631a9a437e9169f8", name: "Magnific", domain: "https://www.magnific.com/app", url: "https://www.magnific.com/app", faviconUrl: "https://www.google.com/s2/favicons?domain=www.magnific.com&sz=32", sectionId: "section-178859476377191b772d79951" },
+      { id: "1788878591902321eac643c0c6", name: "Pinterest", domain: "https://www.pinterest.com/", url: "https://www.pinterest.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=www.pinterest.com&sz=32", sectionId: "section-178859476377191b772d79951" },
+      { id: "1789736942081ade7bdbfa45da", name: "Reddit", domain: "https://www.reddit.com/", url: "https://www.reddit.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=www.reddit.com&sz=32", sectionId: "section-1789736935248205e5953c20f38" },
+      { id: "1790574331570e931613ebfa8f8", name: "Linkedin", domain: "https://www.linkedin.com/", url: "https://www.linkedin.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=www.linkedin.com&sz=32", sectionId: "section-1789736935248205e5953c20f38" },
+      { id: "1790658520991184805fca3ffb8", name: "Galaxystore", domain: "https://galaxystore.samsung.com/", url: "https://galaxystore.samsung.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=galaxystore.samsung.com&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "179076295294732af8fc47fdb68", name: "Iloveimg", domain: "https://www.iloveimg.com/", url: "https://www.iloveimg.com/", faviconUrl: "https://www.google.com/s2/favicons?domain=www.iloveimg.com&sz=32", sectionId: "section-178859476377191b772d79951" },
+      { id: "1790948799384a56b529ccffa6", name: "Cafebazaar", domain: "https://cafebazaar.ir/cat/casual?l=en", url: "https://cafebazaar.ir/cat/casual?l=en", faviconUrl: "https://www.google.com/s2/favicons?domain=cafebazaar.ir&sz=32", sectionId: "section-17702860805989270733efc83d" },
+      { id: "1791278605736b28e53d886d82", name: "Sketchfab", domain: "https://sketchfab.com/feed", url: "https://sketchfab.com/feed", faviconUrl: "https://www.google.com/s2/favicons?domain=sketchfab.com&sz=32", sectionId: "section-178859476377191b772d79951" },
+      { id: "17913897035354035abcb28ff48", name: "Onenote", domain: "https://onenote.cloud.microsoft/notebooks", url: "https://onenote.cloud.microsoft/notebooks", faviconUrl: "https://www.google.com/s2/favicons?domain=onenote.cloud.microsoft&sz=32", sectionId: "section-17879974356520601ea04455e4" },
+      { id: "17914364212026628769c076cf", name: "Docs", domain: "https://docs.google.com/spreadsheets/u/0/", url: "https://docs.google.com/spreadsheets/u/0/", faviconUrl: "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32", sectionId: "section-17879974356520601ea04455e4" },
+      { id: "179239829662512fd5737828fb", name: "Meta", domain: "https://www.meta.ai/", url: "https://www.meta.ai/", faviconUrl: "https://www.google.com/s2/favicons?domain=www.meta.ai&sz=32", sectionId: "section-1770285123324920ef70ed1a85" },
+      { id: "17926694193026ead08edc06d98", name: "Github", domain: "https://github.com/UnityTechnologies", url: "https://github.com/UnityTechnologies", faviconUrl: "https://www.google.com/s2/favicons?domain=github.com&sz=32", sectionId: "section-1792669413766766ec1f3e02d48" },
+      { id: "1792769335926625844b25f2ec", name: "Google Page", domain: "www.google.com", url: "https://www.google.com", faviconUrl: "https://www.google.com/s2/favicons?domain=www.google.com&sz=32", sectionId: "section-1792769298367641e8ed4300bb" },
+      { id: "1792769616366e3a8210fc67338", name: "Youtube", domain: "youtube.com", url: "https://youtube.com", faviconUrl: "https://www.google.com/s2/favicons?domain=youtube.com&sz=32", sectionId: "section-1792769298367641e8ed4300bb" }
     ];
 
-    function saveSites() {
+    function saveSites(markEdited = true) {
       try {
         localStorage.setItem('myfiles_saved_sites', JSON.stringify(sites));
+        if (markEdited) localStorage.setItem('myfiles_has_local_edits', 'true');
         scheduleFileAutoSave();
       } catch (e) {
         console.warn('Could not save sites', e);
       }
     }
 
-    function saveSections() {
+    function saveSections(markEdited = true) {
       try {
         localStorage.setItem('myfiles_saved_sections', JSON.stringify(sections));
+        if (markEdited) localStorage.setItem('myfiles_has_local_edits', 'true');
         scheduleFileAutoSave();
       } catch (e) {
         console.warn('Could not save sections', e);
@@ -1857,6 +1867,7 @@
     }
 
     function exportBackup() {
+      localStorage.removeItem('myfiles_has_local_edits');
       const data = {
         sections: sections,
         sites: sites
@@ -1873,22 +1884,94 @@
       URL.revokeObjectURL(url);
     }
 
+    function applyImportedData(data, notify = false, toastMessage = '✓ Synced with data.json!') {
+      if (!data || !Array.isArray(data.sections) || !Array.isArray(data.sites)) return false;
+      sections = data.sections;
+      sites = data.sites;
+      sections.sort((a, b) => (a.order || 0) - (b.order || 0));
+      saveSections(false);
+      saveSites(false);
+      localStorage.removeItem('myfiles_has_local_edits');
+
+      linksContainer.innerHTML = '';
+      sites.forEach(createSiteButton);
+      updateSectionDropdown();
+      renderSectionsList();
+      renderSidebarTabs();
+
+      if (!sections.some(s => s.id === activeTabId) && activeTabId !== 'all') {
+        activeTabId = sections.length > 0 ? sections[0].id : 'all';
+      }
+      switchTab(activeTabId);
+      if (notify) showToast(toastMessage);
+      return true;
+    }
+
+    async function autoSyncDataJson(force = false) {
+      const syncBtn = document.getElementById('quick-sync-btn');
+      if (syncBtn && force) {
+        syncBtn.disabled = true;
+        syncBtn.innerHTML = '<span>⏳</span> Syncing...';
+      }
+
+      try {
+        const response = await fetch('./data.json?v=' + Date.now(), { cache: 'no-store' });
+        if (!response.ok) {
+          if (force) showToast('⚠️ Could not fetch data.json (HTTP ' + response.status + ')');
+          return;
+        }
+
+        const remoteData = await response.json();
+        if (!Array.isArray(remoteData.sections) || !Array.isArray(remoteData.sites)) {
+          if (force) showToast('⚠️ Invalid data.json structure');
+          return;
+        }
+
+        const localSitesRaw = localStorage.getItem('myfiles_saved_sites');
+        const localSectionsRaw = localStorage.getItem('myfiles_saved_sections');
+        const hasLocalData = !!localSitesRaw && !!localSectionsRaw;
+        const hasLocalEdits = localStorage.getItem('myfiles_has_local_edits') === 'true';
+
+        const isIdentical = localSitesRaw === JSON.stringify(remoteData.sites) &&
+                            localSectionsRaw === JSON.stringify(remoteData.sections);
+
+        if (isIdentical) {
+          if (force) showToast('✓ Already up to date with data.json!');
+          return;
+        }
+
+        if (force || !hasLocalData || !hasLocalEdits) {
+          applyImportedData(remoteData, false);
+          if (force) {
+            showToast('✓ Successfully synced with data.json!');
+          } else if (hasLocalData) {
+            showToast('🔄 Updated with latest data from data.json');
+          }
+          console.log('✓ Synced with data.json from server.');
+        } else {
+          showToast('ℹ️ New data in data.json! Open Settings > Sync to update.');
+        }
+      } catch (err) {
+        console.warn('data.json auto-sync bypassed:', err);
+        if (force) {
+          showToast('⚠️ Could not load data.json (offline or file:// protocol)');
+        }
+      } finally {
+        if (syncBtn && force) {
+          syncBtn.disabled = false;
+          syncBtn.innerHTML = '<span>🔄</span> Sync data.json';
+        }
+      }
+    }
+
     function importBackup(file) {
       if (!file) return;
       const reader = new FileReader();
       reader.onload = (e) => {
         try {
           const parsed = JSON.parse(e.target.result);
-          if (Array.isArray(parsed.sections) && Array.isArray(parsed.sites)) {
-            sections = parsed.sections;
-            sites = parsed.sites;
-            saveSections();
-            saveSites();
-            linksContainer.innerHTML = '';
-            sites.forEach(createSiteButton);
-            updateSectionDropdown();
-            renderSectionsList();
-            alert('Backup successfully imported!');
+          if (applyImportedData(parsed, true, '✓ Backup successfully imported!')) {
+            localStorage.removeItem('myfiles_has_local_edits');
           } else {
             alert('Invalid backup file structure. Expected { sections: [...], sites: [...] }');
           }
@@ -2773,6 +2856,9 @@
     renderSidebarTabs();
     switchTab(activeTabId);
 
+    // Auto-sync with data.json from server / GitHub Pages
+    autoSyncDataJson(false);
+
 
 // -------------------- NEW: Reorder Section Panel --------------------
 const reorderSectionBtn = document.getElementById('reorder-section-btn');
@@ -2842,6 +2928,13 @@ applyReorderSectionBtn.addEventListener('click', () => {
 });
 
 // -------------------- Backup & Restore Handlers --------------------
+const quickSyncBtn = document.getElementById('quick-sync-btn');
+if (quickSyncBtn) {
+  quickSyncBtn.addEventListener('click', () => {
+    autoSyncDataJson(true);
+  });
+}
+
 if (exportBackupBtn) exportBackupBtn.addEventListener('click', exportBackup);
 if (quickExportBtn) quickExportBtn.addEventListener('click', exportBackup);
 
