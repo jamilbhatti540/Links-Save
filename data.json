@@ -29,6 +29,11 @@
       "id": "section-social-apps",
       "name": "Social Apps",
       "order": 5
+    },
+    {
+      "id": "section-179307383586344c516dccce7f",
+      "name": "Test",
+      "order": 6
     }
   ],
   "sites": [
@@ -295,6 +300,14 @@
       "url": "https://jamil",
       "faviconUrl": "https://www.google.com/s2/favicons?domain=jamil&sz=32",
       "sectionId": "section-code-ai"
+    },
+    {
+      "id": "1793073846149c3303c08a2298",
+      "name": "Google",
+      "domain": "Google.com",
+      "url": "https://Google.com",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=Google.com&sz=32",
+      "sectionId": "section-179307383586344c516dccce7f"
     }
   ]
 }
