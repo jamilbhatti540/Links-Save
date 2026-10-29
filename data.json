@@ -31,9 +31,14 @@
       "order": 5
     },
     {
-      "id": "section-179307383586344c516dccce7f",
-      "name": "Test",
+      "id": "section-17932532666315413d0fb6f37c",
+      "name": "Portfolio",
       "order": 6
+    },
+    {
+      "id": "section-17932532774000c648204cf398",
+      "name": "Sheets",
+      "order": 7
     }
   ],
   "sites": [
@@ -182,43 +187,11 @@
       "sectionId": "section-game-store"
     },
     {
-      "id": "site-figma",
-      "name": "Figma",
-      "domain": "figma.com",
-      "url": "https://figma.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=figma.com&sz=32",
-      "sectionId": "section-my-boards"
-    },
-    {
-      "id": "site-miro",
-      "name": "Miro",
-      "domain": "miro.com",
-      "url": "https://miro.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=miro.com&sz=32",
-      "sectionId": "section-my-boards"
-    },
-    {
       "id": "site-excalidraw",
       "name": "Excalidraw",
       "domain": "excalidraw.com",
       "url": "https://excalidraw.com",
       "faviconUrl": "https://www.google.com/s2/favicons?domain=excalidraw.com&sz=32",
-      "sectionId": "section-my-boards"
-    },
-    {
-      "id": "site-onenote",
-      "name": "Onenote",
-      "domain": "onenote.com",
-      "url": "https://onenote.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=onenote.com&sz=32",
-      "sectionId": "section-my-boards"
-    },
-    {
-      "id": "site-docs",
-      "name": "Docs",
-      "domain": "docs.google.com",
-      "url": "https://docs.google.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32",
       "sectionId": "section-my-boards"
     },
     {
@@ -262,52 +235,156 @@
       "sectionId": "section-designing"
     },
     {
-      "id": "site-reddit",
-      "name": "Reddit",
-      "domain": "reddit.com",
-      "url": "https://reddit.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=reddit.com&sz=32",
+      "id": "17932530236669dcc334fc526f",
+      "name": "Onenote",
+      "domain": "https://onedrive.live.com/personal/8714d28ec203c414/_layouts/15/Doc.aspx?sourcedoc={c203c414-d28e-2014-8087-6c0000000000}&action=edit&wd=target%283D%20Game%20Modelling.one%7C7faf8830-b9e6-437d-aa18-2aa2f1320afe%2FUnity%20Shot%20Keys%7C0fa55723-6f87-421b-bd02-5db73c572035%2F%29&wdorigin=NavigationUrl",
+      "url": "https://onedrive.live.com/personal/8714d28ec203c414/_layouts/15/Doc.aspx?sourcedoc={c203c414-d28e-2014-8087-6c0000000000}&action=edit&wd=target%283D%20Game%20Modelling.one%7C7faf8830-b9e6-437d-aa18-2aa2f1320afe%2FUnity%20Shot%20Keys%7C0fa55723-6f87-421b-bd02-5db73c572035%2F%29&wdorigin=NavigationUrl",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=onedrive.live.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "179325305621481dd483f9d04e8",
+      "name": "Miro",
+      "domain": "https://miro.com/app/board/uXjVHvuAJws=/",
+      "url": "https://miro.com/app/board/uXjVHvuAJws=/",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=miro.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "179325332250572287a0a8120f8",
+      "name": "Pinterest",
+      "domain": "https://www.pinterest.com/",
+      "url": "https://www.pinterest.com/",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.pinterest.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "179325336373067ab8c9707a4b8",
+      "name": "Figma",
+      "domain": "https://www.figma.com/files/team/957021627072571496/recents-and-sharing/recently-viewed?fuid=957021622720414690",
+      "url": "https://www.figma.com/files/team/957021627072571496/recents-and-sharing/recently-viewed?fuid=957021622720414690",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.figma.com&sz=32",
+      "sectionId": "section-my-boards"
+    },
+    {
+      "id": "17932534231369f417dba72ff6",
+      "name": "BughetSheet",
+      "domain": "https://docs.google.com/spreadsheets/d/10z8kp0zKv9sCxRcVw8N1xW4qDeBI-RhFOmZRXFNvg8w/edit?gid=186001220#gid=186001220",
+      "url": "https://docs.google.com/spreadsheets/d/10z8kp0zKv9sCxRcVw8N1xW4qDeBI-RhFOmZRXFNvg8w/edit?gid=186001220#gid=186001220",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32",
+      "sectionId": "section-17932532774000c648204cf398"
+    },
+    {
+      "id": "1793253452611ac1a245ec25548",
+      "name": "AttendenceSheet",
+      "domain": "https://docs.google.com/spreadsheets/d/1slO9kM7AZcggssPZP3Sw2wpSorsKptTdv418i6j-ptE/edit?gid=1184167077#gid=1184167077",
+      "url": "https://docs.google.com/spreadsheets/d/1slO9kM7AZcggssPZP3Sw2wpSorsKptTdv418i6j-ptE/edit?gid=1184167077#gid=1184167077",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32",
+      "sectionId": "section-17932532774000c648204cf398"
+    },
+    {
+      "id": "1793254109732e7f3091ac0f7a8",
+      "name": "Instagram",
+      "domain": "https://www.instagram.com/dalluyonstudio/",
+      "url": "https://www.instagram.com/dalluyonstudio/",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.instagram.com&sz=32",
       "sectionId": "section-social-apps"
     },
     {
-      "id": "site-linkedin",
+      "id": "1793254201485ec7a0e76408bf",
       "name": "Linkedin",
-      "domain": "linkedin.com",
-      "url": "https://linkedin.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=linkedin.com&sz=32",
+      "domain": "https://www.linkedin.com/feed?contentTrackingId=maECbairSHGkO5LC4m%2FlvA%3D%3D&viewName=premium-nav-upsell-text&upsellOrderOrigin=Tracking%3Av1%3Apremium_nav_upsell_text_winback%3ANav%3AIn-Product",
+      "url": "https://www.linkedin.com/feed?contentTrackingId=maECbairSHGkO5LC4m%2FlvA%3D%3D&viewName=premium-nav-upsell-text&upsellOrderOrigin=Tracking%3Av1%3Apremium_nav_upsell_text_winback%3ANav%3AIn-Product",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.linkedin.com&sz=32",
       "sectionId": "section-social-apps"
     },
     {
-      "id": "1792761035318b773885aa29fd8",
-      "name": "Jamil",
-      "domain": "jamil",
-      "url": "https://jamil",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=jamil&sz=32",
+      "id": "17932544069669a2acf7d573718",
+      "name": "Facebook",
+      "domain": "https://www.facebook.com/",
+      "url": "https://www.facebook.com/",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.facebook.com&sz=32",
+      "sectionId": "section-social-apps"
+    },
+    {
+      "id": "179325442364966d31d4018d92",
+      "name": "Adsmanager",
+      "domain": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=26973793402253864&business_id=669424372915967&nav_entry_point=ads_ecosystem_navigation_menu&columns=name%2Cdelivery%2Crecommendations_guidance%2Copportunity_score%2Cpotential_outcome%2Cresults%2Ccost_per_result%2Cbudget%2Cspend%2Cimpressions%2Creach%2Cschedule%2Cend_time%2Cattribution_setting%2Cbid%2Clast_significant_edit%2Cquality_score_organic%2Cquality_score_ectr%2Cquality_score_ecvr%2Ccampaign_name&attribution_windows=default&date=2026-09-29_2026-10-28%2Clast_30d&insights_date=2026-09-29_2026-10-28%2Clast_30d&selected_campaign_ids=120249820042450644&nav_source=ads_manager&sort=delivery_info~1",
+      "url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=26973793402253864&business_id=669424372915967&nav_entry_point=ads_ecosystem_navigation_menu&columns=name%2Cdelivery%2Crecommendations_guidance%2Copportunity_score%2Cpotential_outcome%2Cresults%2Ccost_per_result%2Cbudget%2Cspend%2Cimpressions%2Creach%2Cschedule%2Cend_time%2Cattribution_setting%2Cbid%2Clast_significant_edit%2Cquality_score_organic%2Cquality_score_ectr%2Cquality_score_ecvr%2Ccampaign_name&attribution_windows=default&date=2026-09-29_2026-10-28%2Clast_30d&insights_date=2026-09-29_2026-10-28%2Clast_30d&selected_campaign_ids=120249820042450644&nav_source=ads_manager&sort=delivery_info~1",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=adsmanager.facebook.com&sz=32",
+      "sectionId": "section-social-apps"
+    },
+    {
+      "id": "179325448954889649282bbe388",
+      "name": "3dprintcustomz",
+      "domain": "https://3dprintcustomz.com/go/jamil-7587d301",
+      "url": "https://3dprintcustomz.com/go/jamil-7587d301",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=3dprintcustomz.com&sz=32",
+      "sectionId": "section-17932532666315413d0fb6f37c"
+    },
+    {
+      "id": "1793254732078c2ce06f0cd0f5",
+      "name": "3D Printing Portfolio",
+      "domain": "https://jamilrahman.my.canva.site/3d-print-ready-modeling",
+      "url": "https://jamilrahman.my.canva.site/3d-print-ready-modeling",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=jamilrahman.my.canva.site&sz=32",
+      "sectionId": "section-17932532666315413d0fb6f37c"
+    },
+    {
+      "id": "17932547992342be41eadda6b5",
+      "name": "Photogrammetry Portfolio",
+      "domain": "https://jamilrahman.my.canva.site/photogrammetry",
+      "url": "https://jamilrahman.my.canva.site/photogrammetry",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=jamilrahman.my.canva.site&sz=32",
+      "sectionId": "section-17932532666315413d0fb6f37c"
+    },
+    {
+      "id": "1793254820015d867bf68972f48",
+      "name": "Artstation",
+      "domain": "https://www.artstation.com/jamilrahman",
+      "url": "https://www.artstation.com/jamilrahman",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.artstation.com&sz=32",
+      "sectionId": "section-17932532666315413d0fb6f37c"
+    },
+    {
+      "id": "17932548964250366835adc72d8",
+      "name": "Office Expense",
+      "domain": "https://excel.cloud.microsoft/open/onedrive/?docId=8714D28EC203C414%213824&driveId=8714D28EC203C414",
+      "url": "https://excel.cloud.microsoft/open/onedrive/?docId=8714D28EC203C414%213824&driveId=8714D28EC203C414",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=excel.cloud.microsoft&sz=32",
+      "sectionId": "section-17932532774000c648204cf398"
+    },
+    {
+      "id": "1793254937456e5427b66ec4db",
+      "name": "Partner Leads",
+      "domain": "https://docs.google.com/spreadsheets/d/1luiyYAAWh5kQ84eTrJMxExe0rsGWfRGsGR1s9icsPcw/edit?gid=139312722#gid=139312722",
+      "url": "https://docs.google.com/spreadsheets/d/1luiyYAAWh5kQ84eTrJMxExe0rsGWfRGsGR1s9icsPcw/edit?gid=139312722#gid=139312722",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32",
+      "sectionId": "section-17932532774000c648204cf398"
+    },
+    {
+      "id": "17932549746790f6a3f9397d9c",
+      "name": "Member Leads",
+      "domain": "https://docs.google.com/spreadsheets/d/1WCICKmnI6H74wWdYCVdZL6bpyfh__1lcSsGMUGrL-rg/edit?gid=1946678657#gid=1946678657",
+      "url": "https://docs.google.com/spreadsheets/d/1WCICKmnI6H74wWdYCVdZL6bpyfh__1lcSsGMUGrL-rg/edit?gid=1946678657#gid=1946678657",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=docs.google.com&sz=32",
+      "sectionId": "section-17932532774000c648204cf398"
+    },
+    {
+      "id": "179325503068955adbfd4f5c41",
+      "name": "Studio",
+      "domain": "https://studio.tripo3d.ai/workspace/generate/white-spherical-sci-fi-landing-pod-with-viewport-metallic-panels-and-431ef566-2ea8-4206-b8fc-40cf3f226c6f",
+      "url": "https://studio.tripo3d.ai/workspace/generate/white-spherical-sci-fi-landing-pod-with-viewport-metallic-panels-and-431ef566-2ea8-4206-b8fc-40cf3f226c6f",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=studio.tripo3d.ai&sz=32",
       "sectionId": "section-code-ai"
     },
     {
-      "id": "1792761064652ce70c82fc3df18",
-      "name": "Jamil",
-      "domain": "facebook.com",
-      "url": "https://facebook.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=facebook.com&sz=32",
-      "sectionId": "section-code-ai"
-    },
-    {
-      "id": "1792761125691cc688e384d11f8",
-      "name": "Jamil",
-      "domain": "jamil",
-      "url": "https://jamil",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=jamil&sz=32",
-      "sectionId": "section-code-ai"
-    },
-    {
-      "id": "1793073846149c3303c08a2298",
-      "name": "Google",
-      "domain": "Google.com",
-      "url": "https://Google.com",
-      "faviconUrl": "https://www.google.com/s2/favicons?domain=Google.com&sz=32",
-      "sectionId": "section-179307383586344c516dccce7f"
+      "id": "17932551761640fd7b213e90fb",
+      "name": "Peopleperhour",
+      "domain": "https://www.peopleperhour.com/freelancer/design/jamil-rahman-3d-game-art-specialist-zxvjqjya#offers",
+      "url": "https://www.peopleperhour.com/freelancer/design/jamil-rahman-3d-game-art-specialist-zxvjqjya#offers",
+      "faviconUrl": "https://www.google.com/s2/favicons?domain=www.peopleperhour.com&sz=32",
+      "sectionId": "section-17932532666315413d0fb6f37c"
     }
   ]
 }
